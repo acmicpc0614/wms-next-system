@@ -1,60 +1,48 @@
 import { lazy } from 'react';
 
-const Calendar = lazy(() => import('../pages/Calendar'));
-const Chart = lazy(() => import('../pages/Chart'));
-const FormElements = lazy(() => import('../pages/Form/FormElements'));
-const FormLayout = lazy(() => import('../pages/Form/FormLayout'));
-const Profile = lazy(() => import('../pages/Profile'));
-const Settings = lazy(() => import('../pages/Settings'));
-const Tables = lazy(() => import('../pages/Tables'));
-const Alerts = lazy(() => import('../pages/UiElements/Alerts'));
-const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
+const Track = lazy(() => import('../pages/Inventory/Track'));
+const BarcodeScanning = lazy(() => import('../pages/Inventory/BarcodeScanning'));
+const Order = lazy(() => import('../pages/Order'));
+const Receving = lazy(() => import('../pages/Receving&Shipping/Receving'));
+const Shipping = lazy(() => import('../pages/Receving&Shipping/Shipping'));
+const Analytics = lazy(() => import('../pages/Reporting&Analytics/Analytics'));
+const Reporting = lazy(() => import('../pages/Reporting&Analytics/Reporting'));
 
 const coreRoutes = [
   {
-    path: '/calendar',
-    title: 'Calender',
-    component: Calendar,
+    path: '/inventory/track',
+    title: 'Track',
+    component: Track,
   },
   {
-    path: '/profile',
-    title: 'Profile',
-    component: Profile,
+    path: '/inventory/barcode-scanning',
+    title: 'Barcode Scanning',
+    component: BarcodeScanning,
   },
   {
-    path: '/forms/form-elements',
-    title: 'Forms Elements',
-    component: FormElements,
+    path: '/order',
+    title: 'Order',
+    component: Order,
   },
   {
-    path: '/forms/form-layout',
-    title: 'Form Layouts',
-    component: FormLayout,
+    path: '/receving&shipping/receving',
+    title: 'Receving',
+    component: Receving,
   },
   {
-    path: '/tables',
-    title: 'Tables',
-    component: Tables,
+    path: '/receving&shipping/shipping',
+    title: 'Shipping',
+    component: Shipping,
   },
   {
-    path: '/settings',
-    title: 'Settings',
-    component: Settings,
+    path: '/reporting&analytics/reporting',
+    title: 'Reporting',
+    component: Reporting,
   },
   {
-    path: '/chart',
-    title: 'Chart',
-    component: Chart,
-  },
-  {
-    path: '/ui/alerts',
-    title: 'Alerts',
-    component: Alerts,
-  },
-  {
-    path: '/ui/buttons',
-    title: 'Buttons',
-    component: Buttons,
+    path: '/reporting&analytics/Analytics',
+    title: 'Analytics',
+    component: Analytics,
   },
 ];
 
