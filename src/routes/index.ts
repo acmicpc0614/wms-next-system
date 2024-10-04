@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 
+const ECommerce = lazy(() => import('../pages/Dashboard/ECommerce'))
 const Track = lazy(() => import('../pages/Inventory/Track'));
 const BarcodeScanning = lazy(() => import('../pages/Inventory/BarcodeScanning'));
 const Order = lazy(() => import('../pages/Order'));
@@ -9,6 +10,11 @@ const Analytics = lazy(() => import('../pages/Reporting&Analytics/Analytics'));
 const Reporting = lazy(() => import('../pages/Reporting&Analytics/Reporting'));
 
 const coreRoutes = [
+  {
+    path: '/dashboard/ecommerce',
+    title: 'Ecommerce',
+    component: ECommerce,
+  },
   {
     path: '/inventory/track',
     title: 'Track',

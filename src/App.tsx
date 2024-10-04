@@ -2,7 +2,6 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
-import ECommerce from './pages/Dashboard/ECommerce';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import Loader from './common/Loader';
@@ -27,19 +26,10 @@ function App() {
         containerClassName="overflow-auto"
       />
       <Routes>
-        <Route path="/" element={<Navigate to="/signin" replace />} />
+        <Route path="/" element={<Navigate to="/dashboard/ecommerce" replace />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<DefaultLayout />}>
-          <Route
-            index
-            path="/dashboard"
-            element={
-              <Suspense fallback={<Loader />}>
-                <ECommerce />
-              </Suspense>
-            }
-          />
           {routes.map((routes, index) => {
             const { path, component: Component } = routes;
             return (
