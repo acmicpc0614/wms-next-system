@@ -27,11 +27,19 @@ function App() {
         containerClassName="overflow-auto"
       />
       <Routes>
-        {/* <Route path="/" element={<Navigate to="/signin" replace />} /> */}
+        <Route path="/" element={<Navigate to="/signin" replace />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path='/' element={<DefaultLayout />}>
-          <Route index element={<ECommerce />} />
+        <Route path="/" element={<DefaultLayout />}>
+          <Route
+            index
+            path="/dashboard"
+            element={
+              <Suspense fallback={<Loader />}>
+                <ECommerce />
+              </Suspense>
+            }
+          />
           {routes.map((routes, index) => {
             const { path, component: Component } = routes;
             return (
