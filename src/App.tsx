@@ -2,13 +2,13 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
-// import ECommerce from './pages/Dashboard/ECommerce';
+import ECommerce from './pages/Dashboard/ECommerce';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import Loader from './common/Loader';
-// import routes from './routes';
+import routes from './routes';
 
-// const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
+const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -27,10 +27,10 @@ function App() {
         containerClassName="overflow-auto"
       />
       <Routes>
-        <Route path="/" element={<Navigate to="/signin" replace />} />
+        {/* <Route path="/" element={<Navigate to="/signin" replace />} /> */}
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        {/* <Route element={<DefaultLayout />}>
+        <Route path='/' element={<DefaultLayout />}>
           <Route index element={<ECommerce />} />
           {routes.map((routes, index) => {
             const { path, component: Component } = routes;
@@ -46,7 +46,7 @@ function App() {
               />
             );
           })}
-        </Route> */}
+        </Route>
       </Routes>
     </>
   );
