@@ -41,7 +41,7 @@ const SignIn = () => {
 
             <div className="mt-10">
               <div>
-                <form action="/" method="POST" className="space-y-6">
+                <form action="/dashboard/ecommerce" method="POST" className="space-y-6">
                   <div>
                     <label
                       htmlFor="email"

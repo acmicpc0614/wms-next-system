@@ -8,6 +8,7 @@ const Receving = lazy(() => import('../pages/Receving&Shipping/Receving'));
 const Shipping = lazy(() => import('../pages/Receving&Shipping/Shipping'));
 const Analytics = lazy(() => import('../pages/Reporting&Analytics/Analytics'));
 const Reporting = lazy(() => import('../pages/Reporting&Analytics/Reporting'));
+const Warehouse = lazy(() => import('../pages/Warehouse'));
 
 const coreRoutes = [
   {
@@ -49,6 +50,11 @@ const coreRoutes = [
     path: '/reporting&analytics/Analytics',
     title: 'Analytics',
     component: Analytics,
+  },
+  {
+    path: '/warehouse',
+    title: 'Warehouse',
+    component: Warehouse,
   },
 ];
 
