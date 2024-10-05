@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
-import LogoDark from '../../images/logo/logo-dark.svg';
-import Logo from '../../images/logo/logo.svg';
-import backgroundImage1 from '../../images/background1.png';
+import Logo from '../../images/shypv_logo.png';
 import backgroundImage2 from '../../images/background2.jpg';
 
 const SignUp = () => {
@@ -29,11 +27,11 @@ const SignUp = () => {
             <div>
               <img
                 alt="Your Company"
-                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
+                src={Logo}
                 className="h-10 w-auto"
               />
               <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                Sign Up to TailAdmin
+                Sign Up to WMS
               </h2>
             </div>
 

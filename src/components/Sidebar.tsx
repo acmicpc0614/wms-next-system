@@ -17,7 +17,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
   const storedSidebarExpanded = localStorage.getItem('sidebar-expanded');
   const [sidebarExpanded, setSidebarExpanded] = useState(
-    storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true'
+    storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true',
   );
 
   // close on click outside
@@ -65,7 +65,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <NavLink to="/">
-          <img src={Logo} alt="Logo" />
+          <img src={Logo} style={{ marginLeft: "10px", width: '150px' }} alt="Logo" />
         </NavLink>
 
         <button
@@ -310,8 +310,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <NavLink
                   to="/order"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('order') &&
-                    'bg-graydark dark:bg-meta-4'
+                    pathname.includes('order') && 'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <svg
@@ -335,7 +334,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Receving&Shipping --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === '/receving&shipping' || pathname.includes('receving&shipping')
+                  pathname === '/receving&shipping' ||
+                  pathname.includes('receving&shipping')
                 }
               >
                 {(handleClick, open) => {
@@ -444,7 +444,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Reporting&Analytics --> */}
               <SidebarLinkGroup
                 activeCondition={
-                  pathname === '/reporting&analytics' || pathname.includes('reporting&analytics')
+                  pathname === '/reporting&analytics' ||
+                  pathname.includes('reporting&analytics')
                 }
               >
                 {(handleClick, open) => {
@@ -564,7 +565,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <NavLink
                   to="/warehouse"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes('warehouse') && 'bg-graydark dark:bg-meta-4'
+                    pathname.includes('warehouse') &&
+                    'bg-graydark dark:bg-meta-4'
                   }`}
                 >
                   <svg
@@ -574,7 +576,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     viewBox="0 0 18 19"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                  > 
+                  >
                     <g clipPath="url(#clip0_130_9801)">
                       <path
                         d="M10.8563 0.55835C10.5188 0.55835 10.2095 0.8396 10.2095 1.20522V6.83022C10.2095 7.16773 10.4907 7.4771 10.8563 7.4771H16.8751C17.0438 7.4771 17.2126 7.39272 17.3251 7.28022C17.4376 7.1396 17.4938 6.97085 17.4938 6.8021C17.2688 3.28647 14.3438 0.55835 10.8563 0.55835ZM11.4751 6.15522V1.8521C13.8095 2.13335 15.6938 3.8771 16.1438 6.18335H11.4751V6.15522Z"
