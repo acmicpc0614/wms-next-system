@@ -1,7 +1,7 @@
 import {lazy } from 'react';
 
 const ECommerce = lazy(() => import('../pages/Dashboard/ECommerce'))
-const Warehouse = lazy(() => import('../pages/Warehouse'));
+// const Warehouse = lazy(() => import('../pages/Warehouse/Warehouse'));
 const ReceivePurchage = lazy(() => import("../pages/Receiving/ReceivePurchase"));
 const ItemReceiptAndTransferOrder = lazy(() => import("../pages/Receiving/ItemReceiptAndTransferOrder"));
 const UpdateInAndGenReports = lazy(() => import("../pages/Receiving/UpdateInAndGenReports"));
@@ -75,11 +75,11 @@ const coreRoutes = [
     title: "Returns Management",
     component: ReturnsManagement,
   },
-  {
-    path: "/warehouse",
-    title: "Warehouse",
-    component: Warehouse,
-  },
+  // {
+  //   path: "/warehouse",
+  //   title: "Warehouse",
+  //   component: Warehouse,
+  // },
 
 ];
 
