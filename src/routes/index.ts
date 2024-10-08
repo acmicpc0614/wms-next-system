@@ -23,8 +23,8 @@ const ReturnsManagement = lazy(() => import("../pages/ReturnsManagement/ReturnsM
 
 const coreRoutes = [
   {
-    path: '/dashboard/ecommerce',
-    title: 'Ecommerce',
+    path: '/dashboard',
+    title: 'Dashboard',
     component: ECommerce,
   },
   {
