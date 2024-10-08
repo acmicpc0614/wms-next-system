@@ -1,14 +1,25 @@
-import { lazy } from 'react';
+import {lazy } from 'react';
 
 const ECommerce = lazy(() => import('../pages/Dashboard/ECommerce'))
-const Track = lazy(() => import('../pages/Inventory/Track'));
-const BarcodeScanning = lazy(() => import('../pages/Inventory/BarcodeScanning'));
-const Order = lazy(() => import('../pages/Order'));
-const Receving = lazy(() => import('../pages/Receving&Shipping/Receving'));
-const Shipping = lazy(() => import('../pages/Receving&Shipping/Shipping'));
-const Analytics = lazy(() => import('../pages/Reporting&Analytics/Analytics'));
-const Reporting = lazy(() => import('../pages/Reporting&Analytics/Reporting'));
-const Warehouse = lazy(() => import('../pages/Warehouse'));
+// const Track = lazy(() => import('../pages/Inventory/Track'));
+// const BarcodeScanning = lazy(() => import('../pages/Inventory/BarcodeScanning'));
+// const Order = lazy(() => import('../pages/Order/OrderAction'));
+// const Receving = lazy(() => import('../pages/Receving&Shipping/Receving'));
+// const Shipping = lazy(() => import('../pages/Receving&Shipping/Shipping'));
+// const Analytics = lazy(() => import('../pages/Reporting&Analytics/Analytics'));
+// const Reporting = lazy(() => import('../pages/Reporting&Analytics/Reporting'));
+// const Warehouse = lazy(() => import('../pages/Warehouse'));
+const ReceivePurchage = lazy(() => import("../pages/Receiving/ReceivePurchase"));
+const ItemReceiptAndTransferOrder = lazy(() => import("../pages/Receiving/ItemReceiptAndTransferOrder"));
+const UpdateInAndGenReports = lazy(() => import("../pages/Receiving/UpdateInAndGenReports"));
+const CheckIn = lazy(() => import("../pages/CheckIn/CheckIn"));
+const RepReverse = lazy(() => import("../pages/Replenishment/RepReverse"));
+const RepTransfer = lazy(() => import("../pages/Replenishment/RepTransfer"));
+const ProductsManagement = lazy(() => import("../pages/ProductsManagement/ProductsManagement"));
+const OrderAction = lazy(() => import("../pages/Order/OrderAction"));
+const PrintLabel = lazy(() => import("../pages/Order/PrintLable"));
+const CycleCount = lazy(() => import("../pages/CycleCount/CycleCount"));
+const ReturnsManagement = lazy(() => import("../pages/ReturnsManagement/ReturnsManagement"));
 
 const coreRoutes = [
   {
@@ -17,45 +28,62 @@ const coreRoutes = [
     component: ECommerce,
   },
   {
-    path: '/inventory/track',
-    title: 'Track',
-    component: Track,
+    path: "/receiving/receivepurchage",
+    title: "Receive Purchase",
+    component: ReceivePurchage,
   },
   {
-    path: '/inventory/barcode-scanning',
-    title: 'Barcode Scanning',
-    component: BarcodeScanning,
+    path: "/receiving/itemreceipt",
+    title: "Item Receipt & Transfer Order",
+    component: ItemReceiptAndTransferOrder,
   },
   {
-    path: '/order',
-    title: 'Order',
-    component: Order,
+    path: "/receiving/updateandgenerate",
+    title: "Update Inventory & Generate Reports",
+    component: UpdateInAndGenReports,
   },
   {
-    path: '/receving&shipping/receving',
-    title: 'Receving',
-    component: Receving,
+    path: "/checkin",
+    title: "Check-In",
+    component: CheckIn,
   },
   {
-    path: '/receving&shipping/shipping',
-    title: 'Shipping',
-    component: Shipping,
+    path: "/replenishment/transfer",
+    title: "Transfer",
+    component: RepTransfer,
   },
   {
-    path: '/reporting&analytics/reporting',
-    title: 'Reporting',
-    component: Reporting,
+    path: "/replenishment/reverse",
+    title: "Reverse",
+    component: RepReverse,
   },
   {
-    path: '/reporting&analytics/Analytics',
-    title: 'Analytics',
-    component: Analytics,
+    path: "/productsManagement",
+    title: "Products Management",
+    component: ProductsManagement,
   },
   {
-    path: '/warehouse',
-    title: 'Warehouse',
-    component: Warehouse,
+    path: "/order/action",
+    title: "Pick, Pack, Ship",
+    component: OrderAction,
   },
+  {
+    path: "/order/print",
+    title: "Print Label",
+    component: PrintLabel,
+  },
+  {
+    path: "/cyclecount",
+    title: "Cycle Count",
+    component: CycleCount,
+  },
+  {
+    path: "/returnsManagement",
+    title: "Returns Management",
+    component: ReturnsManagement,
+  },
+
+
 ];
 
 const routes = [...coreRoutes];

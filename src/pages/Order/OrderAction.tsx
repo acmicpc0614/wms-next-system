@@ -1,6 +1,6 @@
 const Order = () => {
     return (
-        <>Order Page</>
+        <>Order Pick, Pack, Ship Page</>
     )
 }
 
