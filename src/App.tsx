@@ -6,6 +6,7 @@ import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import Loader from './common/Loader';
 import routes from './routes';
+import NotFound from './pages/Notfound/NotFound';
 
 const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
 
@@ -45,6 +46,8 @@ function App() {
             );
           })}
         </Route>
+        <Route path="*" element={<NotFound />} />{' '}
+        {/* Catch-all route for invalid URLs */}
       </Routes>
     </>
   );
