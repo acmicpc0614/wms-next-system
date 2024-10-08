@@ -1,14 +1,7 @@
 import {lazy } from 'react';
 
 const ECommerce = lazy(() => import('../pages/Dashboard/ECommerce'))
-// const Track = lazy(() => import('../pages/Inventory/Track'));
-// const BarcodeScanning = lazy(() => import('../pages/Inventory/BarcodeScanning'));
-// const Order = lazy(() => import('../pages/Order/OrderAction'));
-// const Receving = lazy(() => import('../pages/Receving&Shipping/Receving'));
-// const Shipping = lazy(() => import('../pages/Receving&Shipping/Shipping'));
-// const Analytics = lazy(() => import('../pages/Reporting&Analytics/Analytics'));
-// const Reporting = lazy(() => import('../pages/Reporting&Analytics/Reporting'));
-// const Warehouse = lazy(() => import('../pages/Warehouse'));
+const Warehouse = lazy(() => import('../pages/Warehouse'));
 const ReceivePurchage = lazy(() => import("../pages/Receiving/ReceivePurchase"));
 const ItemReceiptAndTransferOrder = lazy(() => import("../pages/Receiving/ItemReceiptAndTransferOrder"));
 const UpdateInAndGenReports = lazy(() => import("../pages/Receiving/UpdateInAndGenReports"));
@@ -82,7 +75,11 @@ const coreRoutes = [
     title: "Returns Management",
     component: ReturnsManagement,
   },
-
+  {
+    path: "/warehouse",
+    title: "Warehouse",
+    component: Warehouse,
+  },
 
 ];
 
