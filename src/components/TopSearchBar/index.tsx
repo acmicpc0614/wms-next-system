@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { imgGear } from '../../images/icon';
 import { Search } from 'lucide-react';
+import Toolbar from '../Toolbar';
 
 interface TopSearchBarProps {
   btns?: { label: string; path: string }[]; // Array of button objects with label and path
   title?: string; // Optional: title as a string
   pagination?: boolean; // Optional: boolean for pagination
-  tools?: { label: string; path: string }[]; // Array of tool objects with label and path
+  tools?: boolean; // Array of tool objects with label and path
 }
 
 const TopSearchBar: React.FC<TopSearchBarProps> = ({
@@ -19,7 +20,7 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
   return (
     <>
       <div className="flex flex-row justify-between m-2 w-full">
-        <div className="flex flex-row text-center items-center gap-2">
+        <div className="flex flex-row text-center items-center gap-2 font-bold">
           {title}
           <img src={imgGear} alt="gear" className="w-4 h-4" />
         </div>
@@ -42,7 +43,7 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
           <input
             type="search"
             placeholder="Search..."
-            className="pl-8 pr-2 py-1 border border-gray-300 rounded-md w-80 bg-black"
+            className="pl-8 pr-2 py-1 border border-gray-300 rounded-md w-80 dark:bg-boxdark bg-bodydark1 focus:outline-none"
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -59,64 +60,52 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
             />
           </svg>
         </div>
-        {pagination && (
-          <div className="flex items-center space-x-2">
-            <button
-              className="p-1 hover:bg-gray-200 rounded"
-              aria-label="Previous page"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+        <div className="flex flex-row gap-6">
+          {pagination && (
+            <div className="flex items-center space-x-2">
+              <button
+                className="p-1 hover:bg-gray-200 rounded"
+                aria-label="Previous page"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <span className="text-sm">14/14</span>
-            <button
-              className="p-1 hover:bg-gray-200 rounded"
-              aria-label="Next page"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+              <span className="text-sm">14/14</span>
+              <button
+                className="p-1 hover:bg-gray-200 rounded"
+                aria-label="Next page"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          </div>
-        )}
-        {tools &&
-          tools.map((tool, index) => (
-            <Link key={index} to={tool.path}>
-              <div
-                style={{
-                  cursor: 'pointer',
-                  padding: '10px',
-                  border: '1px solid #ccc',
-                  margin: '5px',
-                }}
-              >
-                {tool.label}
-              </div>
-            </Link>
-          ))}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+          )}
+          {tools && <Toolbar />}
+        </div>
       </div>
     </>
   );
