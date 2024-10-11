@@ -1,3 +1,4 @@
+import ReceiptsTable from '../../../components/ReceiptsTable';
 import TopSearchBar from '../../../components/TopSearchBar';
 
 const Receipts = () => {
@@ -10,7 +11,9 @@ const Receipts = () => {
         pagination={true}
         tools={true}
       />
-      <div>this is table dta</div>
+      <div>
+        <ReceiptsTable />
+      </div>
     </div>
   );
 };
