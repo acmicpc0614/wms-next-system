@@ -4,6 +4,9 @@ const ECommerce = lazy(() => import('../pages/Dashboard/ECommerce'));
 const OverView = lazy(() => import('../pages/OverView/OverView'));
 const CheckIn = lazy(() => import('../pages/CheckIn/CheckIn'));
 const Receipts = lazy(() => import('../pages/Operations/Transfers/Receipts'));
+const ReceiptsDetail = lazy(
+  () => import('../pages/Operations/Transfers/ReceiptsDetail'),
+);
 const Deliveries = lazy(
   () => import('../pages/Operations/Transfers/Deliveries'),
 );
@@ -27,6 +30,11 @@ const coreRoutes = [
     path: '/operations/receipts',
     title: 'Receipts',
     component: Receipts,
+  },
+  {
+    path: '/operations/receipts/detail/:id',
+    title: 'Receipts Detail',
+    component: ReceiptsDetail,
   },
   {
     path: '/operations/deliveries',
