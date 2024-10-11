@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { imgGear } from '../../images/icon';
-import { Search } from 'lucide-react';
 import Toolbar from '../Toolbar';
 
 interface TopSearchBarProps {
