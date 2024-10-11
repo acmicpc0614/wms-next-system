@@ -20,6 +20,28 @@ function FilledIconStar() {
   );
 }
 
+function IconArrowRotateLeft() {
+  return (
+    <svg viewBox="0 0 512 512" fill="currentColor" height="1em" width="1em">
+      <path d="M125.7 160H176c17.7 0 32 14.3 32 32s-14.3 32-32 32H48c-17.7 0-32-14.3-32-32V64c0-17.7 14.3-32 32-32s32 14.3 32 32v51.2l17.6-17.6c87.5-87.5 229.3-87.5 316.8 0s87.5 229.3 0 316.8-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3-163.8-62.5-226.3 0L125.7 160z" />
+    </svg>
+  );
+}
+
+function IconThMenu() {
+  return (
+    <svg
+      baseProfile="tiny"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+    >
+      <path d="M19 17H5c-1.103 0-2 .897-2 2s.897 2 2 2h14c1.103 0 2-.897 2-2s-.897-2-2-2zm0-7H5c-1.103 0-2 .897-2 2s.897 2 2 2h14c1.103 0 2-.897 2-2s-.897-2-2-2zm0-7H5c-1.103 0-2 .897-2 2s.897 2 2 2h14c1.103 0 2-.897 2-2s-.897-2-2-2z" />
+    </svg>
+  );
+}
+
 export {
   imgGear,
   imgcalander,
@@ -28,4 +50,6 @@ export {
   imglist,
   EmptyIconStar,
   FilledIconStar,
+  IconArrowRotateLeft,
+  IconThMenu,
 };

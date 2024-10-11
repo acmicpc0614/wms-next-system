@@ -1,7 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import { EmptyIconStar } from '../../images/icon';
 import { ReceiptsData } from '../../store/StaticData';
 
 const ReceiptsTable = () => {
+  const navigate = useNavigate();
+  const handleClick = (reference: any) => {
+    navigate(`/operations/receipts/detail/${reference}`);
+  };
   return (
     <>
       <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -43,7 +48,10 @@ const ReceiptsTable = () => {
                       <EmptyIconStar />
                     </div>
                   </td>
-                  <td className=" py-2 px-4 pl-9 dark:border-strokedark xl:pl-11">
+                  <td
+                    className=" py-2 px-4 pl-9 dark:border-strokedark xl:pl-11 hover:underline"
+                    onClick={() => handleClick(item.id)}
+                  >
                     <p className="text-sm">{item.Reference}</p>
                   </td>
                   <td className=" py-2 px-4 dark:border-strokedark">
