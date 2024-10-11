@@ -16,29 +16,26 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
   pagination,
   tools,
 }) => {
+  console.log('btns =>', btns);
   return (
     <>
       <div className="flex flex-row justify-between m-2 w-full">
-        <div className="flex flex-row text-center items-center gap-2 font-bold">
-          {title}
-          <img src={imgGear} alt="gear" className="w-4 h-4" />
+        <div className="flex flex-row gap-6 items-center">
+          {btns &&
+            btns.map((btn, index) => (
+              <Link key={index} to={btn.path}>
+                <div className="py-2 px-3 border-2 bg-bodydark2 rounded-md text-white hover:cursor-pointer hover:bg-bodydark">
+                  {btn.label}
+                </div>
+              </Link>
+            ))}
+          <div className="flex flex-row text-center items-center gap-2 font-bold">
+            {title}
+            <img src={imgGear} alt="gear" className="w-4 h-4" />
+          </div>
         </div>
-        {btns &&
-          btns.map((btn, index) => (
-            <Link key={index} to={btn.path}>
-              <div
-                style={{
-                  cursor: 'pointer',
-                  padding: '10px',
-                  border: '1px solid #ccc',
-                  margin: '5px',
-                }}
-              >
-                {btn.label}
-              </div>
-            </Link>
-          ))}
-        <div className="relative">
+
+        <div className="relative items-center flex">
           <input
             type="search"
             placeholder="Search..."
@@ -59,7 +56,7 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
             />
           </svg>
         </div>
-        <div className="flex flex-row gap-6">
+        <div className="flex flex-row gap-6 items-center">
           {pagination && (
             <div className="flex items-center space-x-2">
               <button
