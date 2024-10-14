@@ -17,31 +17,31 @@ const ManufacturingTable = () => {
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-2 text-left dark:bg-meta-4 border-[#aaaaaa] border-b border-t">
-                <th className="py-4 px-4 font-medium text-black dark:text-white">
+                <th className="py-4 px-4 font-semibold text-black dark:text-white">
                   <input type="checkbox" />
                 </th>
-                <th className="py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
+                <th className="py-4 px-4 font-semibold text-black dark:text-white xl:pl-11">
                   Reference
                 </th>
-                <th className="py-4 px-4 font-medium text-black dark:text-white">
+                <th className="py-4 px-4 font-semibold text-black dark:text-white">
                   Start
                 </th>
-                <th className="py-4 px-4 font-medium text-black dark:text-white">
+                <th className="py-4 px-4 font-semibold text-black dark:text-white">
                   Product
                 </th>
-                <th className="py-4 px-4 font-medium text-black dark:text-white">
+                <th className="py-4 px-4 font-semibold text-black dark:text-white">
                   Next Activity
                 </th>
-                <th className="py-4 px-4 font-medium text-black dark:text-white">
+                <th className="py-4 px-4 font-semibold text-black dark:text-white">
                   Source
                 </th>
-                <th className="py-4 px-4 font-medium text-black dark:text-white">
+                <th className="py-4 px-4 font-semibold text-black dark:text-white">
                   Component Status
                 </th>
-                <th className="py-4 px-4 font-medium text-black dark:text-white">
+                <th className="py-4 px-4 font-semibold text-black dark:text-white">
                   Quantity
                 </th>
-                <th className="py-4 px-4 font-medium text-black dark:text-white">
+                <th className="py-4 px-4 font-semibold text-black dark:text-white">
                   State
                 </th>
               </tr>
@@ -54,30 +54,26 @@ const ManufacturingTable = () => {
                     idx % 2 === 1 ? 'bg-gray-2 dark:bg-meta-4' : ''
                   } hover:cursor-pointer border-b border-[#aaaaaa]`}
                 >
-                  <td className=" py-2 px-4 dark:border-strokedark">
+                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
                     <div className="flex flex-row gap-2">
                       <input type="checkbox" />
                       <EmptyIconStar />
                     </div>
                   </td>
                   <td
-                    className=" py-2 px-4 pl-9 dark:border-strokedark xl:pl-11 hover:underline"
+                    className=" py-2 px-4 text-sm pl-9 dark:border-strokedark xl:pl-11 hover:underline"
                     onClick={() => handleClick(item.id)}
                   >
                     <p className="text-sm">{item.Reference}</p>
                   </td>
-                  <td className=" py-2 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white  text-[14px]">
-                      {item.Start}
-                    </p>
+                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                    <p className="text-black dark:text-white">{item.Start}</p>
                   </td>
-                  <td className=" py-2 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white  text-[14px]">
-                      {item.Product}
-                    </p>
+                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                    <p className="text-black dark:text-white">{item.Product}</p>
                   </td>
-                  <td className=" py-2 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white  text-[14px]">
+                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                    <p className="text-black dark:text-white">
                       <img
                         src={imgclock}
                         alt="clock"
@@ -85,24 +81,22 @@ const ManufacturingTable = () => {
                       />
                     </p>
                   </td>
-                  <td className=" py-2 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white  text-[14px]">
-                      {item.Source}
-                    </p>
+                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                    <p className="text-black dark:text-white">{item.Source}</p>
                   </td>
-                  <td className=" py-2 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white  text-[14px]">
+                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                    <p className="text-black dark:text-white">
                       {item.ComponentStatus}
                     </p>
                   </td>
-                  <td className=" py-2 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white  text-[14px]">
+                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                    <p className="text-black dark:text-white">
                       {item.Quantity}
                     </p>
                   </td>
-                  <td className=" py-2 px-4 dark:border-strokedark">
+                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
                     <p
-                      className={`inline-flex rounded-ful py-1 px-3 text-sm font-medium rounded-full text-[14px] ${getBaseColor(
+                      className={`inline-flex rounded-ful py-1 px-3 text-sm font-medium rounded-full ${getBaseColor(
                         { value: item.State },
                       )}`}
                     >
