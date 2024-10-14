@@ -17,6 +17,7 @@ const Manufacturings = lazy(
 const PhysicalInventory = lazy(
   () => import('../pages/Operations/Adjustments/PhysicalInventory'),
 );
+
 const Scrap = lazy(() => import('../pages/Operations/Adjustments/Scrap'));
 const Products = lazy(() => import('../pages/Products/Products'));
 const NewProduct = lazy(() => import('../pages/Products/NewProduct'));
