@@ -35,11 +35,29 @@ const ReceiptDetail: React.FC = () => {
     return <div>Loading...</div>; // Handle loading state
   }
 
+  interface Tab {
+    name: string;
+    href: string;
+    current: boolean;
+  }
+
+  // Create an array of tabs with the defined type
+  const tabs: Tab[] = [
+    { name: 'My Account', href: '#', current: true },
+    { name: 'Company', href: '#', current: false },
+    { name: 'Team Members', href: '#', current: true },
+    { name: 'Billing', href: '#', current: false },
+  ];
+
+  function classNames(...classes: any[]) {
+    return classes.filter(Boolean).join(' ');
+  }
+
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-row justify-between">
         <div className="flex flex-row gap-4">
-          <CustomBtn title="New" />
+          <CustomBtn title="New" clickedPath="/operations/receipts/new" />
           <div className="flex flex-col">
             <p>Receipts</p>
             <div className="flex flex-row items-center gap-2">
@@ -131,6 +149,26 @@ const ReceiptDetail: React.FC = () => {
         </div>
 
         {/* Tab bar */}
+
+        <div className="border-b border-gray-200">
+          <nav aria-label="Tabs" className="-mb-px flex space-x-8">
+            {tabs.map((tab) => (
+              <a
+                key={tab.name}
+                href={tab.href}
+                aria-current={tab.current ? 'page' : undefined}
+                className={classNames(
+                  tab.current
+                    ? 'border-indigo-500 text-indigo-600'
+                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                  'whitespace-nowrap border-b-2 px-1 py-4 text-sm font-medium',
+                )}
+              >
+                {tab.name}
+              </a>
+            ))}
+          </nav>
+        </div>
       </div>
     </div>
   );

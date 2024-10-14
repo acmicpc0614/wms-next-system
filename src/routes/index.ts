@@ -7,6 +7,9 @@ const Receipts = lazy(() => import('../pages/Operations/Transfers/Receipts'));
 const ReceiptsDetail = lazy(
   () => import('../pages/Operations/Transfers/ReceiptsDetail'),
 );
+const NewReceipt = lazy(
+  () => import('../pages/Operations/Transfers/NewReceipt'),
+);
 const Deliveries = lazy(
   () => import('../pages/Operations/Transfers/Deliveries'),
 );
@@ -33,6 +36,11 @@ const coreRoutes = [
     path: '/operations/receipts/detail/:id',
     title: 'Receipts Detail',
     component: ReceiptsDetail,
+  },
+  {
+    path: '/operations/receipts/new',
+    title: 'New Receipt',
+    component: NewReceipt,
   },
   {
     path: '/operations/deliveries',
