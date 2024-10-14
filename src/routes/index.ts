@@ -20,6 +20,9 @@ const PhysicalInventory = lazy(
   () => import('../pages/Operations/Adjustments/PhysicalInventory'),
 );
 const Scrap = lazy(() => import('../pages/Operations/Adjustments/Scrap'));
+const Products = lazy(() => import('../pages/Products/Products'));
+const NewProduct = lazy(() => import ('../pages/Products/NewProduct'));
+const ProductVariants = lazy(() => import('../pages/Products/ProductVariants'));
 
 const coreRoutes = [
   {
@@ -62,7 +65,21 @@ const coreRoutes = [
     title: 'Scrap',
     component: Scrap,
   },
-
+  {
+    path: '/products/products',
+    title: 'Products',
+    component: Products,
+  },
+  {
+    path: '/products/products/newproduct',
+    title: 'New Product',
+    component: NewProduct,
+  },
+  {
+    path: '/products/productvariants',
+    title: 'Product Variants',
+    component: ProductVariants,
+  },
   {
     path: '/dashboard',
     title: 'dashboard',
