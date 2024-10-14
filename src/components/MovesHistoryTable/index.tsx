@@ -1,33 +1,33 @@
 import { useNavigate } from 'react-router-dom';
 import { EmptyIconStar } from '../../images/icon';
 
-const ProductVariantsData = [
+const MovesHistoryData = [
   {
     id: '3ase893lkjsd',
-    InternalReference: 'TITPS',
-    Name: 'Aladin',
-    VariantValues: '10/02/2024 11:02:19',
-    SalesPrice: 'P00002',
-    Cost: 'Draft',
-    OnHand: 'Draft',
-    Forecasted: 'Draft',
+    Date: '10/02/2024 11:02:19',
+    Reference: 'TITPS',
+    Product: 'Aladin',
+    From: 'P00002',
+    To: 'Draft',
+    Quantity: 'Draft',
+    Status: 'Draft',
   },
   {
     id: '3aSdfezcjsd',
-    InternalReference: 'TITPS',
-    Name: 'Aladin',
-    VariantValues: '10/02/2024 11:02:19',
-    SalesPrice: 'P00002',
-    Cost: 'Draft',
-    OnHand: 'Draft',
-    Forecasted: 'Draft',
+    Date: '10/02/2024 11:02:19',
+    Reference: 'TITPS',
+    Product: 'Aladin',
+    From: 'P00002',
+    To: 'Draft',
+    Quantity: 'Draft',
+    Status: 'Draft',
   },
 ];
 
-const ProductVariantsTable = () => {
+const MovesHistoryTable = () => {
   const navigate = useNavigate();
   const handleClick = (reference: any) => {
-    navigate(`/products/productvariants/${reference}`);
+    navigate(`/reporting/moveshisotry/${reference}`);
   };
   return (
     <>
@@ -36,34 +36,34 @@ const ProductVariantsTable = () => {
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-2 text-left dark:bg-meta-4 border-[#aaaaaa] border-b border-t">
-                <th className="min-w-[50px] py-4 px-4 font-medium text-black dark:text-white">
+                <th className="min-w-[50px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
                   <input type="checkbox" />
                 </th>
                 <th className="min-w-[220px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
-                  Internal Reference
+                  Date
                 </th>
                 <th className="min-w-[100px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
-                  Name
+                  Reference
                 </th>
                 <th className="min-w-[220px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
-                  Variant Values
+                  Product
                 </th>
                 <th className="min-w-[120px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
-                  Sales Price
+                  From
                 </th>
                 <th className="min-w-[120px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
-                  Cost
+                  To
                 </th>
                 <th className="min-w-[120px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
-                  On Hand
+                  Quantity
                 </th>
                 <th className="min-w-[120px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
-                  Forecasted
+                  Status
                 </th>
               </tr>
             </thead>
             <tbody>
-              {ProductVariantsData.map((item, idx) => (
+              {MovesHistoryData.map((item, idx) => (
                 <tr
                   key={idx}
                   className={`${
@@ -73,37 +73,36 @@ const ProductVariantsTable = () => {
                   <td className=" py-2 px-4 dark:border-strokedark">
                     <div className="flex flex-row gap-2">
                       <input type="checkbox" />
-                      <EmptyIconStar />
                     </div>
                   </td>
                   <td
-                    className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark hover:underline"
+                    className=" py-2 px-4 dark:border-strokedark hover:underline"
                     onClick={() => handleClick(item.id)}
                   >
-                    <p className="text-sm">{item.InternalReference}</p>
+                    <p className="text-sm text-gray-900">{item.Date}</p>
                   </td>
-                  <td className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white">{item.Name}</p>
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
+                    <p className="text-black dark:text-white">{item.Reference}</p>
                   </td>
-                  <td className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark">
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">
-                      {item.VariantValues}
+                      {item.Product}
                     </p>
                   </td>
-                  <td className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark">
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">
-                      {item.SalesPrice}
+                      {item.From}
                     </p>
                   </td>
-                  <td className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white">{item.Cost}</p>
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
+                    <p className="text-black dark:text-white">{item.To}</p>
                   </td>
-                  <td className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white">{item.OnHand}</p>
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
+                    <p className="text-black dark:text-white">{item.Quantity}</p>
                   </td>
-                  <td className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark">
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">
-                      {item.Forecasted}
+                      {item.Status}
                     </p>
                   </td>
                 </tr>
@@ -116,4 +115,4 @@ const ProductVariantsTable = () => {
   );
 };
 
-export default ProductVariantsTable;
+export default MovesHistoryTable;
