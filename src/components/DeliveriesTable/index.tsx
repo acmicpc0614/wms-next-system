@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { EmptyIconStar } from '../../images/icon';
-import { ReceiptsData } from '../../store/StaticData';
+import { DeliveriesData } from '../../store/StaticData';
 import { getBaseColor } from '../../utils/Actions';
 
-const ReceiptsTable = () => {
+const DeliveriesTable = () => {
   const navigate = useNavigate();
   const handleClick = (reference: any) => {
-    navigate(`/operations/receipts/detail/${reference}`);
+    navigate(`/operations/deliveries/detail/${reference}`);
   };
   return (
     <>
@@ -36,7 +36,7 @@ const ReceiptsTable = () => {
               </tr>
             </thead>
             <tbody>
-              {ReceiptsData.map((item, idx) => (
+              {DeliveriesData.map((item, idx) => (
                 <tr
                   key={idx}
                   className={`${
@@ -87,4 +87,4 @@ const ReceiptsTable = () => {
   );
 };
 
-export default ReceiptsTable;
+export default DeliveriesTable;
