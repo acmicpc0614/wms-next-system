@@ -16,3 +16,38 @@ export const ReceiptsData = [
     Status: 'Done',
   },
 ];
+
+export const DeliveriesData = [
+  {
+    id: '3489alkhs58',
+    Reference: 'WH/OUT/00002',
+    Contact: '',
+    ScheduledData: '10/02/2024 11:02:19',
+    SourceDoc: 'Clothes Shop/0001',
+    Status: 'Ready',
+  },
+  {
+    id: 'a3w3gegawe',
+    Reference: 'WH/POS/00001',
+    Contact: '',
+    ScheduledData: '10/02/2024 11:02:19',
+    SourceDoc: 'Clothes Shop/0001',
+    Status: 'Done',
+  },
+  {
+    id: 'rqc2aesrc3rw',
+    Reference: 'WH/OUT/00001',
+    Contact: 'Madhavi',
+    ScheduledData: '10/02/2024 11:02:19',
+    SourceDoc: 'S00001',
+    Status: 'Done',
+  },
+  {
+    id: 'gpasw4vd4as3',
+    Reference: 'WH/POS/00002',
+    Contact: '',
+    ScheduledData: 'Today',
+    SourceDoc: 'Return of WH/POS/00001',
+    Status: 'Ready',
+  },
+];
