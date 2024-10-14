@@ -1,33 +1,28 @@
 import { useNavigate } from 'react-router-dom';
-import { getBaseColor } from '../../utils/Actions';
 
-const MovesHistoryData = [
+const ValuationData = [
   {
     id: '3ase893lkjsd',
     Date: '10/02/2024 11:02:19',
     Reference: 'TITPS',
     Product: 'Aladin',
-    From: 'P00002',
-    To: 'Draft',
     Quantity: '1.00',
-    Status: 'Draft',
+    TotalValue: '0.00 AED',
   },
   {
     id: '3aSdfezcjsd',
     Date: '10/02/2024 11:02:19',
     Reference: 'TITPS',
     Product: 'Aladin',
-    From: 'P00002',
-    To: 'Draft',
-    Quantity: '36.00',
-    Status: 'Draft',
+    Quantity: '1.00',
+    TotalValue: '0.00 AED',
   },
 ];
 
-const MovesHistoryTable = () => {
+const ValuationTable = () => {
   const navigate = useNavigate();
   const handleClick = (reference: any) => {
-    navigate(`/reporting/moveshisotry/${reference}`);
+    navigate(`/reporting/valuation/${reference}`);
   };
   return (
     <>
@@ -48,22 +43,16 @@ const MovesHistoryTable = () => {
                 <th className="min-w-[220px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
                   Product
                 </th>
-                <th className="min-w-[120px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
-                  From
-                </th>
-                <th className="min-w-[120px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
-                  To
-                </th>
                 <th className="min-w-[120px] font-semibold py-4 px-4 font-medium text-black text-right dark:text-white">
                   Quantity
                 </th>
-                <th className="min-w-[120px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
-                  Status
+                <th className="min-w-[120px] font-semibold py-4 px-4 font-medium text-black text-center dark:text-white">
+                   Total Value
                 </th>
               </tr>
             </thead>
             <tbody>
-              {MovesHistoryData.map((item, idx) => (
+              {ValuationData.map((item, idx) => (
                 <tr
                   key={idx}
                   className={`${
@@ -89,24 +78,14 @@ const MovesHistoryTable = () => {
                   <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">{item.Product}</p>
                   </td>
-                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white">{item.From}</p>
-                  </td>
-                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
-                    <p className="text-black dark:text-white">{item.To}</p>
-                  </td>
                   <td className="text-sm text-right text-gray-900 py-2 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">
                       {item.Quantity}
                     </p>
                   </td>
-                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
-                    <p
-                      className={`inline-flex rounded-ful py-1 px-3 text-sm font-medium rounded-full ${getBaseColor(
-                        { value: item.Status },
-                      )}`}
-                    >
-                      {item.Status}
+                  <td className="text-sm text-center text-gray-900 py-2 px-4 dark:border-strokedark">
+                    <p className="text-black dark:text-white">
+                      {item.TotalValue}
                     </p>
                   </td>
                 </tr>
@@ -119,4 +98,4 @@ const MovesHistoryTable = () => {
   );
 };
 
-export default MovesHistoryTable;
+export default ValuationTable;
