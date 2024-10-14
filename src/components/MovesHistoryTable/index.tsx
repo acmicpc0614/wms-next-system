@@ -36,7 +36,7 @@ const MovesHistoryTable = () => {
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-2 text-left dark:bg-meta-4 border-[#aaaaaa] border-b border-t">
-                <th className="min-w-[50px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
+                <th className="w-[30px] py-4 px-4">
                   <input type="checkbox" />
                 </th>
                 <th className="min-w-[220px] font-semibold py-4 px-4 font-medium text-black dark:text-white">

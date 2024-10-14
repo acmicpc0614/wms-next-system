@@ -5,7 +5,7 @@ const Valuation = () => {
     const buttons = [{ label: 'Valuation at Date', path: 'newstock' }];
 
   return (
-    <div className="w-full h-full flex flex-col gap-10">
+    <div className="w-full h-full flex flex-col gap-5">
       <ValuationTopSearchBar
         title="Stock Valuation"
         btns={buttons}

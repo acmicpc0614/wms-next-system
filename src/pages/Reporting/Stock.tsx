@@ -5,7 +5,7 @@ const Stock = () => {
   const buttons = [{ label: 'New', path: 'newstock' }, { label: 'Inventory at Date', path: 'newStock' }];
 
   return (
-    <div className="w-full h-full flex flex-col gap-10">
+    <div className="w-full h-full flex flex-col gap-5">
       <StockTopSearchBar
         title="Stock"
         btns={buttons}

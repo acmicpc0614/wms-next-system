@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { imgGear } from '../../images/icon';
-import MovesHistoryToolbar from '../Toolbar/MovesHistoryToolbar';
+import MovesAnalysisToolbar from '../Toolbar/MovesAnalysisToolbar';
 
 interface TopSearchBarProps {
   btns?: { label: string; path: string }[]; // Array of button objects with label and path
@@ -10,7 +10,7 @@ interface TopSearchBarProps {
   tools?: boolean; // Array of tool objects with label and path
 }
 
-const MovesHistoryTopSearchBar: React.FC<TopSearchBarProps> = ({
+const MovesAnalysisTopSearchBar: React.FC<TopSearchBarProps> = ({
   btns,
   title,
   pagination,
@@ -100,11 +100,11 @@ const MovesHistoryTopSearchBar: React.FC<TopSearchBarProps> = ({
               </button>
             </div>
           )}
-          {tools && <MovesHistoryToolbar />}
+          {tools && <MovesAnalysisToolbar />}
         </div>
       </div>
     </>
   );
 };
 
-export default MovesHistoryTopSearchBar;
+export default MovesAnalysisTopSearchBar;

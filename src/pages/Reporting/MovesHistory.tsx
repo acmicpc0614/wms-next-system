@@ -5,7 +5,7 @@ const MovesHistory = () => {
   const buttons: { label: string; path: string; }[] | undefined = [];
 
   return (
-    <div className="w-full h-full flex flex-col gap-10">
+    <div className="w-full h-full flex flex-col gap-5">
       <MovesHistoryTopSearchBar
         title="Moves History"
         btns={buttons}
