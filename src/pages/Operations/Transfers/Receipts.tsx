@@ -2,7 +2,7 @@ import ReceiptsTable from '../../../components/ReceiptsTable';
 import TopSearchBar from '../../../components/TopSearchBar';
 
 const Receipts = () => {
-  const buttons = [{ label: 'New', path: 'newreceipts' }];
+  const buttons = [{ label: 'New', path: 'new' }];
   return (
     <div className="w-full h-full flex flex-col gap-10">
       <TopSearchBar

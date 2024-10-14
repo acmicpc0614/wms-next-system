@@ -16,10 +16,9 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
   pagination,
   tools,
 }) => {
-  console.log('btns =>', btns);
   return (
     <>
-      <div className="flex flex-row justify-between m-2 w-full">
+      <div className="flex flex-row justify-between my-2 w-full">
         <div className="flex flex-row gap-6 items-center">
           {btns &&
             btns.map((btn, index) => (
