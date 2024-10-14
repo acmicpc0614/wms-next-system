@@ -42,6 +42,31 @@ function IconThMenu() {
   );
 }
 
+function IconPushpin() {
+  return (
+    <svg viewBox="0 0 1024 1024" fill="currentColor" height="1em" width="1em">
+      <path d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3-15.4 12.3-16.6 35.4-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8z" />
+    </svg>
+  );
+}
+function IconBxsCloudUpload() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" height="1em" width="1em">
+      <path d="M18.944 11.112C18.507 7.67 15.56 5 12 5 9.244 5 6.85 6.611 5.757 9.15 3.609 9.792 2 11.82 2 14c0 2.757 2.243 5 5 5h11c2.206 0 4-1.794 4-4a4.01 4.01 0 00-3.056-3.888zM13 14v3h-2v-3H8l4-5 4 5h-3z" />
+    </svg>
+  );
+}
+function Icon272Cross() {
+  return (
+    <svg viewBox="0 0 16 16" fill="currentColor" height="1em" width="1em">
+      <path
+        fill="currentColor"
+        d="M15.854 12.854L11 8l4.854-4.854a.503.503 0 000-.707L13.561.146a.499.499 0 00-.707 0L8 5 3.146.146a.5.5 0 00-.707 0L.146 2.439a.499.499 0 000 .707L5 8 .146 12.854a.5.5 0 000 .707l2.293 2.293a.499.499 0 00.707 0L8 11l4.854 4.854a.5.5 0 00.707 0l2.293-2.293a.499.499 0 000-.707z"
+      />
+    </svg>
+  );
+}
+
 export {
   imgGear,
   imgcalander,
@@ -52,4 +77,7 @@ export {
   FilledIconStar,
   IconArrowRotateLeft,
   IconThMenu,
+  IconPushpin,
+  IconBxsCloudUpload,
+  Icon272Cross,
 };
