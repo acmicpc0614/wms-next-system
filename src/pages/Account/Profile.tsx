@@ -1,5 +1,5 @@
 const Profile = () => {
-  return <>Profile page</>;
+  return <>this is profile page</>;
 };
 
 export default Profile;
