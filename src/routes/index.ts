@@ -21,6 +21,8 @@ const PhysicalInventory = lazy(
 );
 const Scrap = lazy(() => import('../pages/Operations/Adjustments/Scrap'));
 
+const Profile = lazy(() => import('../pages/Account/Profile'));
+
 const coreRoutes = [
   {
     path: '/overview',
@@ -72,6 +74,11 @@ const coreRoutes = [
     path: '/checkin',
     title: 'Check-In',
     component: CheckIn,
+  },
+  {
+    path: '/profile',
+    title: 'My Profile',
+    component: Profile,
   },
 ];
 
