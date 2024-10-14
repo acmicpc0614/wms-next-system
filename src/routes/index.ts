@@ -26,8 +26,19 @@ const Stock = lazy(() => import('../pages/Reporting/Stock'));
 const MovesAnalysis = lazy(() => import('../pages/Reporting/MovesAnalysis'));
 const MovesHistory = lazy(() => import('../pages/Reporting/MovesHistory'));
 const Valuation = lazy(() => import('../pages/Reporting/Valuation'));
-
 const Profile = lazy(() => import('../pages/Account/Profile'));
+const Settings = lazy(() => import('../pages/Configuration/Settings'));
+const Warehouses = lazy(() => import('../pages/Configuration/Warehouses'));
+const OperationsTypes = lazy(
+  () => import('../pages/Configuration/OperationsTypes'),
+);
+const ProductCategories = lazy(
+  () => import('../pages/Configuration/ProductCategories'),
+);
+const Attributes = lazy(() => import('../pages/Configuration/Attributes'));
+const DeliveryMethods = lazy(
+  () => import('../pages/Configuration/DeliveryMethods'),
+);
 
 const coreRoutes = [
   {
@@ -104,6 +115,37 @@ const coreRoutes = [
     path: '/reporting/valuation',
     title: 'Valuation',
     component: Valuation,
+  },
+  {
+    path: '/configuration/warehouses',
+    title: 'Warehouses',
+    component: Warehouses,
+  },
+  {
+    path: '/configuration/operationstypes',
+    title: 'Operatons Types',
+    component: OperationsTypes,
+  },
+  {
+    path: '/configuration/productcategories',
+    title: 'Product Categories',
+    component: ProductCategories,
+  },
+  {
+    path: '/configuration/attributes',
+    title: 'Attribues',
+    component: Attributes,
+  },
+
+  {
+    path: '/configuration/deliverymethods',
+    title: 'Delivery Methods',
+    component: DeliveryMethods,
+  },
+  {
+    path: '/configuration/settings',
+    title: 'Settings',
+    component: Settings,
   },
   {
     path: '/profile',
