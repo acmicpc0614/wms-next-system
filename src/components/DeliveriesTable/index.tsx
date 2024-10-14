@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { EmptyIconStar } from '../../images/icon';
 import { DeliveriesData } from '../../store/StaticData';
+import { getBaseColor } from '../../utils/Actions';
 
 const DeliveriesTable = () => {
   const navigate = useNavigate();
@@ -69,13 +70,9 @@ const DeliveriesTable = () => {
                   </td>
                   <td className=" py-2 px-4 dark:border-strokedark">
                     <p
-                      className={`inline-flex rounded-ful py-1 px-3 text-sm font-medium rounded-full ${
-                        item.Status === 'Draft'
-                          ? 'bg-bodydark1 text-boxdark-2'
-                          : item.Status === 'Ready'
-                          ? 'bg-primary text-white'
-                          : 'bg-success text-white'
-                      }`}
+                      className={`inline-flex rounded-ful py-1 px-3 text-sm font-medium rounded-full ${getBaseColor(
+                        { value: item.Status },
+                      )}`}
                     >
                       {item.Status}
                     </p>
