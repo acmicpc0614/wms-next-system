@@ -45,7 +45,7 @@ const ReceiptDetail: React.FC = () => {
   const tabs: Tab[] = [
     { name: 'My Account', href: '#', current: true },
     { name: 'Company', href: '#', current: false },
-    { name: 'Team Members', href: '#', current: true },
+    { name: 'Team Members', href: '#', current: false },
     { name: 'Billing', href: '#', current: false },
   ];
 
