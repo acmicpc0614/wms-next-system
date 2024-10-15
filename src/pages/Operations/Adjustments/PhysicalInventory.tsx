@@ -15,9 +15,7 @@ const Physicalinventory = () => {
           pagination={true}
           tools={false}
         />
-        <div>
-          <InventoryAdjustmentsTable />
-        </div>
+        <InventoryAdjustmentsTable />
       </div>
     </>
   );

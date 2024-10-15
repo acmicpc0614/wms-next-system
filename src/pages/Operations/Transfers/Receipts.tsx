@@ -11,9 +11,7 @@ const Receipts = () => {
         pagination={true}
         tools={true}
       />
-      <div>
-        <ReceiptsTable />
-      </div>
+      <ReceiptsTable />
     </div>
   );
 };

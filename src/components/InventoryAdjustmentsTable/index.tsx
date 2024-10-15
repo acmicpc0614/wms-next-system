@@ -82,16 +82,16 @@ const InventoryAdjustmentsTable = () => {
                   <td className=" py-2 px-4 text-sm dark:border-strokedark">
                     <p className="text-black dark:text-white">{item.User}</p>
                   </td>
-                  <td className="flex flex-row py-2 px-4 text-sm dark:border-strokedark gap-4">
-                    <div className="flex flex-row gap-1">
+                  <td className="flex flex-row py-2 px-4 text-sm dark:border-strokedark gap-6">
+                    <div className="flex flex-row gap-1 items-center">
                       <IconArrowRotateLeft />
                       <p className="text-black dark:text-white">Return</p>
                     </div>
-                    <div className="flex flex-row gap-1">
+                    <div className="flex flex-row gap-1 items-center">
                       <img src={imgSavebtn} className="w-4 h-4" alt="save" />
                       <p className="text-black dark:text-white">Save</p>
                     </div>
-                    <div className="flex flex-row gap-1">
+                    <div className="flex flex-row gap-1 items-center">
                       <Icon272Cross />
                       <p className="text-black dark:text-white">Clear</p>
                     </div>
