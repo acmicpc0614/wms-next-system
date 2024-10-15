@@ -1,14 +1,11 @@
 import {
-  EmptyIconStar,
   Icon272Cross,
   IconArrowRotateLeft,
   imgSavebtn,
 } from '../../images/icon';
-import { InventoryData, ManufactoringsData } from '../../store/StaticData';
-import { getBaseColor } from '../../utils/Actions';
-import { imgclock } from '../../images/icon';
+import { InventoryData } from '../../store/StaticData';
 
-const InventoryAdjustments = () => {
+const InventoryAdjustmentsTable = () => {
   const handleClick = (reference: any) => {
     console.log(reference);
   };
@@ -109,4 +106,4 @@ const InventoryAdjustments = () => {
   );
 };
 
-export default InventoryAdjustments;
+export default InventoryAdjustmentsTable;

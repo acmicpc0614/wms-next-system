@@ -1,4 +1,4 @@
-import InventoryAdjustments from '../../../components/InventoryAdjustments';
+import InventoryAdjustmentsTable from '../../../components/InventoryAdjustmentsTable';
 import TopSearchBar from '../../../components/TopSearchBar';
 
 const Physicalinventory = () => {
@@ -16,7 +16,7 @@ const Physicalinventory = () => {
           tools={false}
         />
         <div>
-          <InventoryAdjustments />
+          <InventoryAdjustmentsTable />
         </div>
       </div>
     </>

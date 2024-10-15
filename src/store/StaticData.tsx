@@ -90,3 +90,21 @@ export const InventoryData = [
     User: '',
   },
 ];
+
+interface ScrapItem {
+  id: string;
+  Reference: string;
+  Date: string; // You might want to use Date type if you're handling dates
+  Product: string;
+  QuantityStatus: number;
+}
+
+export const ScrapData: ScrapItem[] = [
+  // {
+  //   id: '239jhadf1fayal0',
+  //   Reference: 'Apple',
+  //   Date: '10/09/2024',
+  //   Product: 'cozy sweater',
+  //   QuantityStatus: 120,
+  // },
+];
