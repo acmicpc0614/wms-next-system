@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { EmptyIconStar } from '../../images/icon';
 
 const StockData = [
@@ -25,10 +24,6 @@ const StockData = [
 ];
 
 const StockTable = () => {
-  const navigate = useNavigate();
-  const handleClick = (reference: any) => {
-    navigate(`/reporting/stock/${reference}`);
-  };
   return (
     <>
       <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -77,8 +72,7 @@ const StockTable = () => {
                     </div>
                   </td>
                   <td
-                    className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark hover:underline"
-                    onClick={() => handleClick(item.id)}
+                    className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark"
                   >
                     <p className="text-sm">{item.InternalReference}</p>
                   </td>
