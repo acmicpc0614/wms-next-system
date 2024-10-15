@@ -54,38 +54,38 @@ const ManufacturingTable = () => {
                     idx % 2 === 1 ? 'bg-gray-2 dark:bg-meta-4' : ''
                   } hover:cursor-pointer border-b border-[#aaaaaa]`}
                 >
-                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
                     <div className="flex flex-row gap-2">
                       <input type="checkbox" />
                       <EmptyIconStar />
                     </div>
                   </td>
                   <td
-                    className=" py-2 px-4 text-sm pl-9 dark:border-strokedark xl:pl-11 hover:underline"
+                    className=" py-2 px-4  text-sm pl-9 dark:border-strokedark xl:pl-11 hover:underline"
                     onClick={() => handleClick(item.id)}
                   >
                     <p className="text-sm">{item.Reference}</p>
                   </td>
-                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
                     <p className="text-black dark:text-white">{item.Start}</p>
                   </td>
-                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
                     <p className="text-black dark:text-white">{item.Product}</p>
                   </td>
-                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
                     <p className="text-black dark:text-white">
                       <img
                         src={imgclock}
                         alt="clock"
-                        className="w-5 h-5 font-[#ff0000]"
+                        className="w-5 h-5 text-[#ff0000]"
                       />
                     </p>
                   </td>
-                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
                     <p className="text-black dark:text-white">{item.Source}</p>
                   </td>
-                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
-                    <p className="text-black dark:text-white">
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
+                    <p className="text-success font-bold dark:text-white">
                       {item.ComponentStatus}
                     </p>
                   </td>
@@ -94,7 +94,7 @@ const ManufacturingTable = () => {
                       {item.Quantity}
                     </p>
                   </td>
-                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
                     <p
                       className={`inline-flex rounded-ful py-1 px-3 text-sm font-medium rounded-full ${getBaseColor(
                         { value: item.State },

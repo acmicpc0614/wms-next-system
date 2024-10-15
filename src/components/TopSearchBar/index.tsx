@@ -23,7 +23,7 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
           {btns &&
             btns.map((btn, index) => (
               <Link key={index} to={btn.path}>
-                <div className="py-2 px-3 border-2 bg-bodydark2 rounded-md text-white hover:cursor-pointer hover:bg-bodydark">
+                <div className="h-8 px-3 items-center flex bg-bodydark2 rounded-md text-white hover:cursor-pointer hover:bg-bodydark dark:bg-boxdark dark:border-[1px] dark:border-bodydark2">
                   {btn.label}
                 </div>
               </Link>
@@ -38,7 +38,7 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
           <input
             type="search"
             placeholder="Search..."
-            className="pl-8 pr-2 py-1 border border-gray-300 rounded-md w-80 dark:bg-boxdark bg-bodydark1 focus:outline-none"
+            className="pl-8 pr-2 py-1 border border-bodydark2 rounded-md w-80 dark:bg-boxdark bg-stroke focus:outline-none"
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
