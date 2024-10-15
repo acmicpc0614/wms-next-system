@@ -161,3 +161,7 @@ span.flatpickr-weekday,
 [x-cloak] {
   display: none !important;
 }
+
+.border-custom {
+  border: 1px solid #dddddd;
+}

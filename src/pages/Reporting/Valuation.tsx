@@ -1,12 +1,12 @@
 import ValuationTable from "../../components/ValuationTable";
-import ValuationTopSearchBar from "../../components/TopSearchBar/ValuationTopSearchBar";
+import TopSearchBar from "../../components/TopSearchBar";
 
 const Valuation = () => {
     const buttons = [{ label: 'Valuation at Date', path: 'newstock' }];
 
   return (
     <div className="w-full h-full flex flex-col gap-5">
-      <ValuationTopSearchBar
+      <TopSearchBar
         title="Stock Valuation"
         btns={buttons}
         pagination={true}

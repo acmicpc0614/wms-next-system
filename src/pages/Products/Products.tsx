@@ -1,5 +1,5 @@
 import ProductCard from '../../components/ProductCard';
-import ProductTopSearchBar from '../../components/TopSearchBar/ProductTopSearchBar';
+import TopSearchBar from '../../components/TopSearchBar';
 
 interface ProductType {
   name: string;
@@ -51,7 +51,7 @@ const buttons = [{ label: 'New', path: 'newproduct' }];
 const Products = () => {
   return (
     <div className="w-full h-full flex flex-col gap-5">
-      <ProductTopSearchBar
+      <TopSearchBar
         title="Products"
         btns={buttons}
         pagination={true}

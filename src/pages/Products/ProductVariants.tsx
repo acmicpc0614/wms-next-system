@@ -1,12 +1,12 @@
 import ProductVariantsTable from "../../components/ProductVariantsTable";
-import ProductVariantsTopSearchBar from "../../components/TopSearchBar/ProductVariantsTopSearchBar";
+import TopSearchBar from "../../components/TopSearchBar";
 
 const ProductVariants = () => {
   const buttons = [{ label: 'New', path: 'newreceipts' }];
 
   return (
     <div className="w-full h-full flex flex-col gap-5">
-      <ProductVariantsTopSearchBar
+      <TopSearchBar
         title="Product Variants"
         btns={buttons}
         pagination={true}
