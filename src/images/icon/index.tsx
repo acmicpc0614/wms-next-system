@@ -3,6 +3,7 @@ import imglist from './list-svgrepo-com.svg';
 import imgchart from './analysis-chart-data-svgrepo-com.svg';
 import imgcalander from './calander-interface-icon-svgrepo-com.svg';
 import imgclock from './clock-snooze-svgrepo-com.svg';
+import imgSavebtn from './save-technology-svgrepo-com.svg';
 
 function EmptyIconStar() {
   return (
@@ -73,6 +74,7 @@ export {
   imgchart,
   imgclock,
   imglist,
+  imgSavebtn,
   EmptyIconStar,
   FilledIconStar,
   IconArrowRotateLeft,

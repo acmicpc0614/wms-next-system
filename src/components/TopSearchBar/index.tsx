@@ -20,14 +20,16 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
     <>
       <div className="flex flex-row justify-between my-2 w-full">
         <div className="flex flex-row gap-6 items-center">
-          {btns &&
-            btns.map((btn, index) => (
-              <Link key={index} to={btn.path}>
-                <div className="h-8 px-3 items-center flex bg-bodydark2 rounded-md text-white hover:cursor-pointer hover:bg-bodydark dark:bg-boxdark dark:border-[1px] dark:border-bodydark2">
-                  {btn.label}
-                </div>
-              </Link>
-            ))}
+          <div className="flex flex-row gap-2 items-center">
+            {btns &&
+              btns.map((btn, index) => (
+                <Link key={index} to={btn.path}>
+                  <div className="h-8 px-3 items-center flex bg-bodydark2 rounded-md text-white hover:cursor-pointer hover:bg-bodydark dark:bg-boxdark dark:border-[1px] dark:border-bodydark2">
+                    {btn.label}
+                  </div>
+                </Link>
+              ))}
+          </div>
           <div className="flex flex-row text-center items-center gap-2 font-bold">
             {title}
             <img src={imgGear} alt="gear" className="w-4 h-4" />

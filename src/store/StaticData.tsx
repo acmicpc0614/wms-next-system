@@ -78,3 +78,15 @@ export const ManufactoringsData = [
     State: CONFIRMED,
   },
 ];
+
+export const InventoryData = [
+  {
+    id: '239jhaslkfyal0',
+    Product: 'cozy sweater',
+    OnHandQueen: 120.0,
+    CountedQuantity: 0,
+    Difference: -120,
+    ScheduledData: '10/09/2024',
+    User: '',
+  },
+];
