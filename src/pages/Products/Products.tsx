@@ -50,7 +50,7 @@ const buttons = [{ label: 'New', path: 'newproduct' }];
 
 const Products = () => {
   return (
-    <div className="w-full h-full flex flex-col gap-10">
+    <div className="w-full h-full flex flex-col gap-5">
       <ProductTopSearchBar
         title="Products"
         btns={buttons}

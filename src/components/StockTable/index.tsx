@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { EmptyIconStar } from '../../images/icon';
 
-const ProductVariantsData = [
+const StockData = [
   {
     id: '3ase893lkjsd',
     InternalReference: 'TITPS',
@@ -24,10 +24,10 @@ const ProductVariantsData = [
   },
 ];
 
-const ProductVariantsTable = () => {
+const StockTable = () => {
   const navigate = useNavigate();
   const handleClick = (reference: any) => {
-    navigate(`/products/productvariants/${reference}`);
+    navigate(`/reporting/stock/${reference}`);
   };
   return (
     <>
@@ -36,10 +36,10 @@ const ProductVariantsTable = () => {
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-2 text-left dark:bg-meta-4 border-[#aaaaaa] border-b border-t">
-                <th className="min-w-[50px] py-4 px-4 font-medium text-black dark:text-white">
+                <th className="min-w-[50px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
                   <input type="checkbox" />
                 </th>
-                <th className="min-w-[220px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
+                <th className="min-w-[220px] font-semibold py-4 px-4 font-medium text-black dark:text-white ">
                   Internal Reference
                 </th>
                 <th className="min-w-[100px] font-semibold py-4 px-4 font-medium text-black dark:text-white">
@@ -63,45 +63,45 @@ const ProductVariantsTable = () => {
               </tr>
             </thead>
             <tbody>
-              {ProductVariantsData.map((item, idx) => (
+              {StockData.map((item, idx) => (
                 <tr
                   key={idx}
                   className={`${
                     idx % 2 === 1 ? 'bg-gray-2 dark:bg-meta-4' : ''
                   } hover:cursor-pointer border-b border-[#aaaaaa]`}
                 >
-                  <td className=" py-2 px-4 dark:border-strokedark">
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
                     <div className="flex flex-row gap-2">
                       <input type="checkbox" />
                       <EmptyIconStar />
                     </div>
                   </td>
                   <td
-                    className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark hover:underline"
+                    className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark hover:underline"
                     onClick={() => handleClick(item.id)}
                   >
                     <p className="text-sm">{item.InternalReference}</p>
                   </td>
-                  <td className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark">
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">{item.Name}</p>
                   </td>
-                  <td className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark">
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">
                       {item.VariantValues}
                     </p>
                   </td>
-                  <td className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark">
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">
                       {item.SalesPrice}
                     </p>
                   </td>
-                  <td className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark">
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">{item.Cost}</p>
                   </td>
-                  <td className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark">
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">{item.OnHand}</p>
                   </td>
-                  <td className="text-sm text-gray-900  py-2 px-4 dark:border-strokedark">
+                  <td className="text-sm text-gray-900 py-2 px-4 dark:border-strokedark">
                     <p className="text-black dark:text-white">
                       {item.Forecasted}
                     </p>
@@ -116,4 +116,4 @@ const ProductVariantsTable = () => {
   );
 };
 
-export default ProductVariantsTable;
+export default StockTable;

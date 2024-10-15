@@ -1,7 +1,6 @@
 import CustomBtn from '../../../components/CustomBtn';
 import {
   Icon272Cross,
-  IconArrowRotateLeft,
   IconBxsCloudUpload,
   IconPushpin,
   IconThMenu,
