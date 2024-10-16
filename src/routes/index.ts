@@ -23,6 +23,7 @@ const Products = lazy(() => import('../pages/Products/Products'));
 const NewProduct = lazy(() => import('../pages/Products/NewProduct'));
 const ProductVariants = lazy(() => import('../pages/Products/ProductVariants'));
 const Stock = lazy(() => import('../pages/Reporting/Stock'));
+const NewStock = lazy(() => import('../pages/Reporting/NewStock'));
 const MovesAnalysis = lazy(() => import('../pages/Reporting/MovesAnalysis'));
 const MovesHistory = lazy(() => import('../pages/Reporting/MovesHistory'));
 const Valuation = lazy(() => import('../pages/Reporting/Valuation'));
@@ -100,6 +101,11 @@ const coreRoutes = [
     path: '/reporting/stock',
     title: 'Stock',
     component: Stock,
+  },
+  {
+    path: '/reporting/stock/newstock',
+    title: 'New Stock',
+    component: NewStock,
   },
   {
     path: '/reporting/movesanalysis',
