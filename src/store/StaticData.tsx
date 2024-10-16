@@ -166,3 +166,12 @@ export const AttributeData = [
     Filter: 'Visible',
   },
 ];
+
+export const DeliveryMethodsData = [
+  {
+    Method: 'Standard delivery',
+    Provider: 'Fixed Price',
+    IsPublished: true,
+    MaxWeight: 0,
+  },
+];

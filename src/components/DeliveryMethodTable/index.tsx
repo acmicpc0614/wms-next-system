@@ -1,13 +1,6 @@
-import { useNavigate } from 'react-router-dom';
-import { EmptyIconStar } from '../../images/icon';
-import { DeliveriesData } from '../../store/StaticData';
-import { getBaseColor } from '../../utils/Actions';
+import { DeliveryMethodsData } from '../../store/StaticData';
 
 const DeliveryMethodTable = () => {
-  const navigate = useNavigate();
-  const handleClick = (reference: any) => {
-    navigate(`/operations/deliveries/detail/${reference}`);
-  };
   return (
     <>
       <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -18,22 +11,22 @@ const DeliveryMethodTable = () => {
                 <th className="min-w-[50px] py-4 px-4 font-semibold text-black dark:text-white">
                   <input type="checkbox" />
                 </th>
-                <th className="min-w-[220px] py-4 px-4 font-semibold text-black dark:text-white xl:pl-11">
-                  Reference
+                <th className="min-w-[320px] py-4 px-4 font-semibold text-black dark:text-white xl:pl-11">
+                  Delivery Method
                 </th>
-                <th className="min-w-[100px] py-4 px-4 font-semibold text-black dark:text-white">
-                  Contact
+                <th className="min-w-[200px] py-4 px-4 font-semibold text-black dark:text-white">
+                  Provider
                 </th>
-                <th className="min-w-[220px] py-4 px-4 font-semibold text-black dark:text-white">
-                  Scheduled Data
+                <th className="min-w-[50px] py-4 px-4 font-semibold text-black dark:text-white">
+                  Is Published
                 </th>
                 <th className="py-4 px-4 font-semibold text-black dark:text-white">
-                  Source Document
+                  Max Weight
                 </th>
               </tr>
             </thead>
             <tbody>
-              {DeliveriesData.map((item, idx) => (
+              {DeliveryMethodsData.map((item, idx) => (
                 <tr
                   key={idx}
                   className={`${
@@ -43,26 +36,26 @@ const DeliveryMethodTable = () => {
                   <td className=" py-2 px-4 text-sm dark:border-strokedark">
                     <div className="flex flex-row gap-2">
                       <input type="checkbox" />
-                      <EmptyIconStar />
                     </div>
                   </td>
-                  <td
-                    className=" py-2 px-4 text-sm pl-9 dark:border-strokedark xl:pl-11 hover:underline"
-                    onClick={() => handleClick(item.id)}
-                  >
-                    <p className="text-sm">{item.Reference}</p>
-                  </td>
-                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
-                    <p className="text-black dark:text-white">{item.Contact}</p>
+                  <td className=" py-2 px-4 text-sm pl-9 dark:border-strokedark xl:pl-11 hover:underline">
+                    <p className="text-sm">{item.Method}</p>
                   </td>
                   <td className=" py-2 px-4 text-sm dark:border-strokedark">
                     <p className="text-black dark:text-white">
-                      {item.ScheduledData}
+                      {item.Provider}
                     </p>
                   </td>
                   <td className=" py-2 px-4 text-sm dark:border-strokedark">
+                    {item.IsPublished ? (
+                      <input type="checkbox" checked={true} />
+                    ) : (
+                      <input type="checkbox" />
+                    )}
+                  </td>
+                  <td className=" py-2 px-4 text-sm dark:border-strokedark">
                     <p className="text-black dark:text-white">
-                      {item.SourceDoc}
+                      {item.MaxWeight}
                     </p>
                   </td>
                 </tr>
