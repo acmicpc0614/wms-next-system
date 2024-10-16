@@ -1,4 +1,4 @@
-import OperationTable from '../../components/OperationTable';
+import AttributeTable from '../../components/AttributesTable';
 import TopSearchBar from '../../components/TopSearchBar';
 
 const Attributes = () => {
@@ -12,7 +12,7 @@ const Attributes = () => {
           pagination={true}
           tools={false}
         />
-        <OperationTable />
+        <AttributeTable />
       </div>
     </>
   );

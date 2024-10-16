@@ -108,3 +108,61 @@ export const ScrapData: ScrapItem[] = [
   //   QuantityStatus: 120,
   // },
 ];
+
+export const AttributeData = [
+  {
+    Attribute: 'Brand',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+
+  {
+    Attribute: 'First',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'Second',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'Third',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'color',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'Brand',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'Text',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'Brand',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'Brand',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+];
