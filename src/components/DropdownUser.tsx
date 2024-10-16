@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import UserOne from '../images/user/user-01.png';
+import DarkModeSwitcher from './DarkModeSwitcher';
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -158,6 +159,12 @@ const DropdownUser = () => {
               </svg>
               Account Settings
             </Link>
+          </li>
+          <li>
+            <div className="flex flex-row gap-3.5">
+              <DarkModeSwitcher />
+              <p>DarkMode</p>
+            </div>
           </li>
         </ul>
         <button
