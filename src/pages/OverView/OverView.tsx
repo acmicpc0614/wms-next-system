@@ -8,11 +8,10 @@ const OverView = () => {
   }
 
   const data: DataItem[] = [
-    { title: 'Receipts', path: '/checkin' },
-    { title: 'Delivery Orders', path: '/checkin' },
-    { title: 'Manufacturing', path: '/checkin' },
-    { title: 'Pos Orders', path: '/checkin' },
-    { title: 'Search Bar', path: '/checkin' },
+    { title: 'Operation', path: '/operations/receipts' },
+    { title: 'Products', path: '/products/products' },
+    { title: 'Reporting', path: '/reporting/stock' },
+    { title: 'Configuration', path: '/configuration/settings' },
   ];
 
   return (

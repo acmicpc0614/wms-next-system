@@ -12,9 +12,7 @@ const Deliveries = () => {
           pagination={true}
           tools={true}
         />
-        <div>
-          <DeliveriesTable />
-        </div>
+        <DeliveriesTable />
       </div>
     </>
   );
