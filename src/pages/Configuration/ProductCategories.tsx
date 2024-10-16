@@ -1,4 +1,4 @@
-import OperationTable from '../../components/OperationTable';
+import ProductCategoriesTable from '../../components/ProductCategoriesTable';
 import TopSearchBar from '../../components/TopSearchBar';
 
 const ProductCategories = () => {
@@ -12,7 +12,7 @@ const ProductCategories = () => {
           pagination={true}
           tools={false}
         />
-        <OperationTable />
+        <ProductCategoriesTable />
       </div>
     </>
   );
