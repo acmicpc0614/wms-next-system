@@ -3,6 +3,8 @@ import imglist from './list-svgrepo-com.svg';
 import imgchart from './analysis-chart-data-svgrepo-com.svg';
 import imgcalander from './calander-interface-icon-svgrepo-com.svg';
 import imgclock from './clock-snooze-svgrepo-com.svg';
+import imgSavebtn from './save-technology-svgrepo-com.svg';
+import imgEmptyBox from './empty-box-svgrepo-com.svg';
 
 function EmptyIconStar() {
   return (
@@ -68,11 +70,13 @@ function Icon272Cross() {
 }
 
 export {
+  imgEmptyBox,
   imgGear,
   imgcalander,
   imgchart,
   imgclock,
   imglist,
+  imgSavebtn,
   EmptyIconStar,
   FilledIconStar,
   IconArrowRotateLeft,

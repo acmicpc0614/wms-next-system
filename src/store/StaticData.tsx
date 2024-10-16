@@ -78,3 +78,100 @@ export const ManufactoringsData = [
     State: CONFIRMED,
   },
 ];
+
+export const InventoryData = [
+  {
+    id: '239jhaslkfyal0',
+    Product: 'cozy sweater',
+    OnHandQueen: 120.0,
+    CountedQuantity: 0,
+    Difference: -120,
+    ScheduledData: '10/09/2024',
+    User: '',
+  },
+];
+
+interface ScrapItem {
+  id: string;
+  Reference: string;
+  Date: string; // You might want to use Date type if you're handling dates
+  Product: string;
+  QuantityStatus: number;
+}
+
+export const ScrapData: ScrapItem[] = [
+  // {
+  //   id: '239jhadf1fayal0',
+  //   Reference: 'Apple',
+  //   Date: '10/09/2024',
+  //   Product: 'cozy sweater',
+  //   QuantityStatus: 120,
+  // },
+];
+
+export const AttributeData = [
+  {
+    Attribute: 'Brand',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+
+  {
+    Attribute: 'First',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'Second',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'Third',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'color',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'Brand',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'Text',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'Brand',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+  {
+    Attribute: 'Brand',
+    DisplayType: 'Radio',
+    VariantCreation: 'Instantly',
+    Filter: 'Visible',
+  },
+];
+
+export const DeliveryMethodsData = [
+  {
+    Method: 'Standard delivery',
+    Provider: 'Fixed Price',
+    IsPublished: true,
+    MaxWeight: 0,
+  },
+];

@@ -12,9 +12,7 @@ const Manufactorings = () => {
           pagination={true}
           tools={true}
         />
-        <div>
-          <ManufacturingTable />
-        </div>
+        <ManufacturingTable />
       </div>
     </>
   );
