@@ -1,15 +1,15 @@
 import MovesAnalysisTable from "../../components/MovesAnalysisTable";
-import MovesAnalysisTopSearchBar from "../../components/TopSearchBar/MovesAnalysisTopSearchBar";
+import TopSearchBar from "../../components/TopSearchBar";
 
 const MovesAnalysis = () => {
   const buttons: { label: string; path: string; }[] | undefined = [];
 
   return (
     <div className="w-full h-full flex flex-col gap-5">
-      <MovesAnalysisTopSearchBar
+      <TopSearchBar
         title="Moves Analysis"
         btns={buttons}
-        pagination={true}
+        pagination={false}
         tools={true}
       />
       <div>

@@ -1,16 +1,16 @@
 import StockTable from "../../components/StockTable";
-import StockTopSearchBar from "../../components/TopSearchBar/StockTopSearchBar";
+import TopSearchBar from "../../components/TopSearchBar";
 
 const Stock = () => {
   const buttons = [{ label: 'New', path: 'newstock' }, { label: 'Inventory at Date', path: 'newStock' }];
 
   return (
     <div className="w-full h-full flex flex-col gap-5">
-      <StockTopSearchBar
+      <TopSearchBar
         title="Stock"
         btns={buttons}
         pagination={true}
-        tools={true}
+        tools={false}
       />
       <div>
         <StockTable />

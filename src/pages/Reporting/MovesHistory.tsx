@@ -1,12 +1,12 @@
 import MovesHistoryTable from "../../components/MovesHistoryTable";
-import MovesHistoryTopSearchBar from "../../components/TopSearchBar/MovesHistoryTopSearchBar";
+import TopSearchBar from "../../components/TopSearchBar";
 
 const MovesHistory = () => {
   const buttons: { label: string; path: string; }[] | undefined = [];
 
   return (
     <div className="w-full h-full flex flex-col gap-5">
-      <MovesHistoryTopSearchBar
+      <TopSearchBar
         title="Moves History"
         btns={buttons}
         pagination={true}
