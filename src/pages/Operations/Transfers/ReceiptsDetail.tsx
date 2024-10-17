@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ReceiptsData } from '../../../store/StaticData';
+import { ManufactoringsData, ReceiptsData } from '../../../store/StaticData';
 import {
   EmptyIconStar,
   IconArrowRotateLeft,
+  IconSearch,
   IconThMenu,
+  IconUser,
   imgGear,
 } from '../../../images/icon';
 import CustomBtn from '../../../components/CustomBtn';
@@ -19,38 +21,23 @@ interface Receipt {
 }
 
 const ReceiptDetail: React.FC = () => {
-  const { id } = useParams<{ id: string }>(); // Specify the type for useParams
-  const [data, setData] = useState<Receipt | null>(null); // Initialize state with Receipt type or null
+  const { id } = useParams<{ id: string }>();
+
+  const [data, setData] = useState<Receipt | null>(null);
+  const [activeTab, setActiveTab] = useState('Operations');
+
   const navigate = useNavigate();
   const handleReturnClick = () => {
     navigate('/operations/receipts/');
   };
 
   useEffect(() => {
-    const foundData = ReceiptsData.find((item) => item.id === id); // Correct usage of find
-    setData(foundData || null); // Set to null if not found
-  }, [id]); // Add id to the dependency array
+    const foundData = ReceiptsData.find((item) => item.id === id);
+    setData(foundData || null);
+  }, [id]);
 
   if (!data) {
-    return <div>Loading...</div>; // Handle loading state
-  }
-
-  interface Tab {
-    name: string;
-    href: string;
-    current: boolean;
-  }
-
-  // Create an array of tabs with the defined type
-  const tabs: Tab[] = [
-    { name: 'My Account', href: '#', current: true },
-    { name: 'Company', href: '#', current: false },
-    { name: 'Team Members', href: '#', current: false },
-    { name: 'Billing', href: '#', current: false },
-  ];
-
-  function classNames(...classes: any[]) {
-    return classes.filter(Boolean).join(' ');
+    return <div>Loading...</div>;
   }
 
   return (
@@ -123,7 +110,7 @@ const ReceiptDetail: React.FC = () => {
           <EmptyIconStar />
           <h1 className="text-3xl">{data.Reference}</h1>
         </div>
-        <div className="flex flex-row  gap-5">
+        <div className="flex flex-row gap-5">
           <div className="flex flex-row gap-10 w-[50%]">
             <div className="flex flex-col gap-2">
               <p>Receive From</p>
@@ -131,14 +118,13 @@ const ReceiptDetail: React.FC = () => {
             </div>
             <div className="flex flex-col gap-2">
               <p className="font-bold text-success">{data.Contact}</p>
-              {/* <p>{data.ScheduledData}</p> */}
             </div>
           </div>
           <div className="flex flex-row gap-10 w-[50%]">
             <div className="flex flex-col gap-2">
               <p>Scheduled Data</p>
-              <p>Effective Data </p>
-              <p>Source Document </p>
+              <p>Effective Data</p>
+              <p>Source Document</p>
             </div>
             <div className="flex flex-col gap-2">
               <p>{data.ScheduledData}</p>
@@ -149,25 +135,46 @@ const ReceiptDetail: React.FC = () => {
         </div>
 
         {/* Tab bar */}
-
-        <div className="border-b border-gray-200">
-          <nav aria-label="Tabs" className="-mb-px flex space-x-8">
-            {tabs.map((tab) => (
-              <a
-                key={tab.name}
-                href={tab.href}
-                aria-current={tab.current ? 'page' : undefined}
-                className={classNames(
-                  tab.current
-                    ? 'border-indigo-500 text-indigo-600'
-                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                  'whitespace-nowrap border-b-2 px-1 py-4 text-sm font-medium',
-                )}
-              >
-                {tab.name}
-              </a>
+        <div className="mb-4">
+          <ul className="flex border-b">
+            {['Operations', 'Additional Info', 'Note'].map((tab) => (
+              <li key={tab} className="-mb-px mr-1">
+                <button
+                  className={`bg-white inline-block py-2 px-4 font-semibold ${
+                    activeTab === tab
+                      ? 'border-l border-t border-r rounded-t text-blue-700'
+                      : 'text-blue-500 hover:text-blue-800'
+                  }`}
+                  onClick={() => setActiveTab(tab)}
+                >
+                  {tab.charAt(0).toUpperCase() + tab.slice(1).replace('-', ' ')}
+                </button>
+              </li>
             ))}
-          </nav>
+          </ul>
+          <div className="">
+            {activeTab === 'Operations' && <ReceiptDetailOperationTable />}
+            {activeTab === 'Additional Info' && <p>Log note content</p>}
+            {activeTab === 'Note' && <p>Activities content</p>}
+          </div>
+        </div>
+        <div className="flex justify-between items-center">
+          <div className="flex flex-row gap-1">
+            <div className="p-2 bg-bodydark2 rounded-md text-white">
+              Send message
+            </div>
+            <div className="p-2 bg-bodydark2 rounded-md text-white">
+              Log note
+            </div>
+            <div className="p-2 bg-bodydark2 rounded-md text-white">
+              Activities
+            </div>
+          </div>
+          <div className="flex flex-row gap-3">
+            <IconSearch />
+            <IconUser />
+            <p className="text-sm text-success font-bold">Following</p>
+          </div>
         </div>
       </div>
     </div>
@@ -175,3 +182,51 @@ const ReceiptDetail: React.FC = () => {
 };
 
 export default ReceiptDetail;
+
+const ReceiptDetailOperationTable = () => {
+  return (
+    <>
+      <div className="mt-2 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
+        <div className="max-w-full overflow-x-auto">
+          <table className="w-full table-auto">
+            <thead>
+              <tr className="bg-gray-2 text-left dark:bg-meta-4 border-[#aaaaaa] border-b border-t">
+                <th className="py-4 px-4 w-[50px] font-semibold text-black dark:text-white">
+                  <input type="checkbox" />
+                </th>
+                <th className="py-4 px-4 font-semibold text-black dark:text-white">
+                  Warehouse
+                </th>
+                <th className="py-4 px-4 font-semibold text-black dark:text-white">
+                  Address
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {ManufactoringsData.map((item, idx) => (
+                <tr
+                  key={idx}
+                  className={`${
+                    idx % 2 === 1 ? 'bg-gray-2 dark:bg-meta-4' : ''
+                  } hover:cursor-pointer border-b border-[#aaaaaa]`}
+                >
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
+                    <div className="flex flex-row gap-2">
+                      <input type="checkbox" />
+                    </div>
+                  </td>
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark hover:underline">
+                    <p className="text-sm">{item.Reference}</p>
+                  </td>
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
+                    <p className="text-black dark:text-white">{item.Start}</p>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </>
+  );
+};
