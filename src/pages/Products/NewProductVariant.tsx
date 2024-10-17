@@ -16,7 +16,6 @@ import {
   FaCaretDown,
 } from 'react-icons/fa';
 import Info from '../../components/TabsComponent/Info';
-import Attribute from '../../components/TabsComponent/Attribute';
 import Purchase from '../../components/TabsComponent/Purchase';
 import Inventory from '../../components/TabsComponent/Inventory';
 import Accounting from '../../components/TabsComponent/Accounting';
@@ -42,7 +41,7 @@ const NewProduct = () => {
           <div className="flex flex-row gap-4 items-center">
             <CustomBtn title="New" clickedPath="/reporting/stock/newstock" />
             <div className="flex flex-col">
-              <p>Product</p>
+              <p>Product Variants</p>
               <div className="flex flex-row items-center">
                 <IconGear />
               </div>
@@ -90,7 +89,6 @@ const NewProduct = () => {
         </div>
 
         <div className="flex flex-row gap-1">
-          <CustomBtn title="Update Quantity" fill={false} />
           <CustomBtn title="Replenish" fill={false} />
           <CustomBtn title="Print Labels" fill={false} />
         </div>
@@ -122,7 +120,6 @@ const NewProduct = () => {
             <ul className="flex border-b">
               {[
                 'General Information',
-                'Attribute & Variants',
                 'Sales',
                 'Purchase',
                 'Inventory',
@@ -145,7 +142,6 @@ const NewProduct = () => {
             </ul>
             <div className="mt-4">
               {activeTab === 'General Information' && <Info />}
-              {activeTab === 'Attribute & Variants' && <Attribute />}
               {activeTab === 'Sales' && <p>Company content</p>}
               {activeTab === 'Purchase' && <Purchase />}
               {activeTab === 'Inventory' && <Inventory />}
