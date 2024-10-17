@@ -13,13 +13,18 @@ import {
   FaRegChartBar,
   FaCaretDown,
 } from 'react-icons/fa';
+import Info from '../../components/TabsComponent/Info';
+import Attribute from '../../components/TabsComponent/Attribute';
+import Purchase from '../../components/TabsComponent/Purchase';
+import Inventory from '../../components/TabsComponent/Inventory';
+import Accounting from '../../components/TabsComponent/Accounting';
 
 const tabs = [
   { name: 'General Information', current: true },
   { name: 'Attributes & Variants', current: false },
   { name: 'Sales', current: false },
   { name: 'Purchase', current: false },
-  { name: 'Inventory', current: false },  
+  { name: 'Inventory', current: false },
   { name: 'Accounting', current: false },
 ];
 
@@ -96,13 +101,13 @@ const NewProduct = () => {
           <CustomBtn title="Print Labels" fill={false} />
         </div>
 
-        <div className="flex flex-col gap-3 rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-          <p className="font-semibold">Product</p>
-          <div className="flex flex-row gap-5 items-center h-10">
+        <div className="flex flex-col gap-3 rounded-sm border border-stroke bg-white pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:pb-1">
+          <p className="font-semibold px-5 sm:px-7.5">Product</p>
+          <div className="flex flex-row gap-5 items-center h-10 px-5 sm:px-7.5">
             <BigEmptyIconStar />
             <h1 className="text-3xl">e.g.Cheese Burger</h1>
           </div>
-          <div className="flex itmes-center gap-3">
+          <div className="flex itmes-center gap-3 px-5 sm:px-7.5">
             <div className="flex items-center gap-1">
               <input type="checkbox" />
               <p>Sales</p>
@@ -140,7 +145,7 @@ const NewProduct = () => {
             </div>
             <div className="hidden sm:block">
               <div className="border-b border-gray-200">
-                <nav aria-label="Tabs" className="-mb-px flex space-x-8">
+                <nav aria-label="Tabs" className="-mb-px flex space-x-8 px-5 sm:px-7.5">
                   {tabs.map((tab) => (
                     <button
                       key={tab.name}
@@ -159,21 +164,26 @@ const NewProduct = () => {
                 </nav>
               </div>
             </div>
-            <div className="p-4">
-              {activeTab === 'General Information' && <p>My Account content</p>}
-              {activeTab === 'Attributes & Variants' && <p>My Account content</p>}
+            <div className='px-5 sm:px-7.5'>
+              {activeTab === 'General Information' && <Info />}
+              {activeTab === 'Attributes & Variants' && <Attribute />}
               {activeTab === 'Sales' && <p>Company content</p>}
-              {activeTab === 'Purchase' && <p>Team Members content</p>}
-              {activeTab === 'Inventory' && <p>Billing content</p>}              
-              {activeTab === 'Accounting' && <p>Billing content</p>}
+              {activeTab === 'Purchase' && <Purchase />}
+              {activeTab === 'Inventory' && <Inventory />}
+              {activeTab === 'Accounting' && <Accounting />}
             </div>
           </div>
         </div>
 
-        <div className="flex flex-row gap-1">
-          <CustomBtn title="Send Message" fill={true} />
-          <CustomBtn title="Log note" fill={false} />
-          <CustomBtn title="Activities" fill={false} />
+        <div className="flex items-center justify-between">
+          <div className="flex flex-row gap-1">
+            <CustomBtn title="Send Message" fill={true} />
+            <CustomBtn title="Log note" fill={false} />
+            <CustomBtn title="Activities" fill={false} />
+          </div>
+          <p>
+            Follow
+          </p>
         </div>
       </div>
     </>
