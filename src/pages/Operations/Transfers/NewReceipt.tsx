@@ -59,7 +59,7 @@ const NewReceipt = () => {
               <div className="flex flex-col gap-2">
                 <input
                   type="string"
-                  className="border-b-[1px] border-b-bodydark2 focus:border-b-success focus:outline-none"
+                  className="border-b-[1px] border-b-bodydark2 focus:border-b-success focus:outline-none dark:bg-boxdark"
                   placeholder="e.g. Lumber Inc"
                 />
                 <p>Time: Receipts</p>
@@ -75,7 +75,7 @@ const NewReceipt = () => {
 
                 <input
                   type="string"
-                  className="border-b-[1px] border-b-bodydark2 focus:border-b-success focus:outline-none"
+                  className="border-b-[1px] border-b-bodydark2 focus:border-b-success focus:outline-none dark:bg-boxdark"
                   placeholder="e.g. Lumber Inc"
                 />
               </div>
@@ -88,7 +88,7 @@ const NewReceipt = () => {
               {['Operations', 'Additional Info', 'Note'].map((tab) => (
                 <li key={tab} className="-mb-px mr-1">
                   <button
-                    className={`bg-white inline-block py-2 px-4 font-semibold ${
+                    className={`bg-white dark:bg-boxdark inline-block py-2 px-4 font-semibold ${
                       activeTab === tab
                         ? 'border-l border-t border-r rounded-t text-blue-700'
                         : 'text-blue-500 hover:text-blue-800'
@@ -153,26 +153,35 @@ const ReceiptDetailOperationTable = () => {
               </tr>
             </thead>
             <tbody>
-              {ManufactoringsData.map((item, idx) => (
-                <tr
-                  key={idx}
-                  className={`${
-                    idx % 2 === 1 ? 'bg-gray-2 dark:bg-meta-4' : ''
-                  } hover:cursor-pointer border-b border-[#aaaaaa]`}
-                >
-                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
-                    <div className="flex flex-row gap-2">
-                      <input type="checkbox" />
-                    </div>
-                  </td>
+              {NewReceiptData.length > 0 ? (
+                NewReceiptData.map((item, idx) => (
+                  <tr
+                    key={idx}
+                    className={`${
+                      idx % 2 === 1 ? 'bg-gray-2 dark:bg-meta-4' : ''
+                    } hover:cursor-pointer border-b border-[#aaaaaa]`}
+                  >
+                    <td className=" py-2 px-4  text-sm dark:border-strokedark">
+                      <div className="flex flex-row gap-2">
+                        <input type="checkbox" />
+                      </div>
+                    </td>
+                    <td className=" py-2 px-4  text-sm dark:border-strokedark hover:underline">
+                      <p className="text-sm">{item.Reference}</p>
+                    </td>
+                    <td className=" py-2 px-4  text-sm dark:border-strokedark">
+                      <p className="text-black dark:text-white">{item.Start}</p>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark hover:underline"></td>
                   <td className=" py-2 px-4  text-sm dark:border-strokedark hover:underline">
-                    <p className="text-sm">{item.Reference}</p>
-                  </td>
-                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
-                    <p className="text-black dark:text-white">{item.Start}</p>
+                    <p className="text-sm text-success">Add a line</p>
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
@@ -180,3 +189,10 @@ const ReceiptDetailOperationTable = () => {
     </>
   );
 };
+
+interface NewReceiptDataType {
+  Reference: string;
+  Start: string; // Adjust the type as necessary (e.g., Date if applicable)
+}
+
+const NewReceiptData: NewReceiptDataType[] = [];

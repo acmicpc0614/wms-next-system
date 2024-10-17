@@ -140,7 +140,7 @@ const ReceiptDetail: React.FC = () => {
             {['Operations', 'Additional Info', 'Note'].map((tab) => (
               <li key={tab} className="-mb-px mr-1">
                 <button
-                  className={`bg-white inline-block py-2 px-4 font-semibold ${
+                  className={`bg-white dark:bg-boxdark inline-block py-2 px-4 font-semibold ${
                     activeTab === tab
                       ? 'border-l border-t border-r rounded-t text-blue-700'
                       : 'text-blue-500 hover:text-blue-800'
