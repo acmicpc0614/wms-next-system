@@ -46,7 +46,7 @@ const data: ProductType[] = [
   },
 ];
 
-const buttons = [{ label: 'New', path: 'newproduct' }];
+const buttons = [{ label: 'New', path: 'new' }];
 
 const Products = () => {
   return (
@@ -55,7 +55,7 @@ const Products = () => {
         title="Products"
         btns={buttons}
         pagination={true}
-        tools={true}
+        tools={false}
       />
       <ul
         role="list"

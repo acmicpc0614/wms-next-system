@@ -10,7 +10,7 @@ const MovesHistory = () => {
         title="Moves History"
         btns={buttons}
         pagination={true}
-        tools={true}
+        tools={false}
       />
       <div>
         <MovesHistoryTable />

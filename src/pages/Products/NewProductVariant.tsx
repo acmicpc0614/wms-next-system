@@ -26,7 +26,7 @@ function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-const NewStock = () => {
+const NewProductVariant = () => {
   const [activeTab, setActiveTab] = useState<string>(
     tabs.find((tab) => tab.current)?.name || '',
   );
@@ -42,7 +42,7 @@ const NewStock = () => {
           <div className="flex flex-row gap-4 items-center">
             <CustomBtn title="New" clickedPath="/reporting/stock/newstock" />
             <div className="flex flex-col">
-              <p>Stock</p>
+              <p>Product Variants</p>
               <div className="flex flex-row items-center">
                 <img src={imgGear} className="w-4 h-4" alt="gear" />
               </div>
@@ -90,7 +90,6 @@ const NewStock = () => {
         </div>
 
         <div className="flex flex-row gap-1">
-          <CustomBtn title="Update Quantity" fill={false} />
           <CustomBtn title="Replenish" fill={false} />
           <CustomBtn title="Print Labels" fill={false} />
         </div>
@@ -178,4 +177,4 @@ const NewStock = () => {
   );
 };
 
-export default NewStock;
+export default NewProductVariant;

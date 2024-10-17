@@ -22,6 +22,7 @@ const Scrap = lazy(() => import('../pages/Operations/Adjustments/Scrap'));
 const Products = lazy(() => import('../pages/Products/Products'));
 const NewProduct = lazy(() => import('../pages/Products/NewProduct'));
 const ProductVariants = lazy(() => import('../pages/Products/ProductVariants'));
+const NewProductVariant = lazy(() => import('../pages/Products/NewProductVariant'));
 const Stock = lazy(() => import('../pages/Reporting/Stock'));
 const NewStock = lazy(() => import('../pages/Reporting/NewStock'));
 const MovesAnalysis = lazy(() => import('../pages/Reporting/MovesAnalysis'));
@@ -88,7 +89,7 @@ const coreRoutes = [
     component: Products,
   },
   {
-    path: '/products/products/newproduct',
+    path: '/products/products/new',
     title: 'New Product',
     component: NewProduct,
   },
@@ -96,6 +97,11 @@ const coreRoutes = [
     path: '/products/productvariants',
     title: 'Product Variants',
     component: ProductVariants,
+  },
+  {
+    path: '/products/productvariants/new',
+    title: 'New Product Variant',
+    component: NewProductVariant,
   },
   {
     path: '/reporting/stock',
