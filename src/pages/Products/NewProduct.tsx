@@ -4,8 +4,10 @@ import {
   BigEmptyIconStar,
   Icon272Cross,
   IconBxsCloudUpload,
+  IconGear,
   IconPushpin,
-  imgGear,
+  IconSearch,
+  IconUser,
 } from '../../images/icon';
 import {
   FaListUl,
@@ -28,18 +30,10 @@ const tabs = [
   { name: 'Accounting', current: false },
 ];
 
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(' ');
-}
-
 const NewProduct = () => {
   const [activeTab, setActiveTab] = useState<string>(
     tabs.find((tab) => tab.current)?.name || '',
   );
-
-  const handleTabClick = (tabName: string) => {
-    setActiveTab(tabName);
-  };
 
   return (
     <>
@@ -50,7 +44,7 @@ const NewProduct = () => {
             <div className="flex flex-col">
               <p>Product</p>
               <div className="flex flex-row items-center">
-                <img src={imgGear} className="w-4 h-4" alt="gear" />
+                <IconGear />
               </div>
             </div>
             <IconBxsCloudUpload />
@@ -101,13 +95,13 @@ const NewProduct = () => {
           <CustomBtn title="Print Labels" fill={false} />
         </div>
 
-        <div className="flex flex-col gap-3 rounded-sm border border-stroke bg-white pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:pb-1">
-          <p className="font-semibold px-5 sm:px-7.5">Product</p>
-          <div className="flex flex-row gap-5 items-center h-10 px-5 sm:px-7.5">
+        <div className="flex flex-col gap-3 rounded-sm border border-stroke bg-white pt-6 pb-2.5 shadow-default dark:border-strokedark px-5 sm:px-7.5 dark:bg-boxdark xl:pb-1">
+          <p className="font-semibold">Product</p>
+          <div className="flex flex-row gap-5 items-center h-10">
             <BigEmptyIconStar />
             <h1 className="text-3xl">e.g.Cheese Burger</h1>
           </div>
-          <div className="flex itmes-center gap-3 px-5 sm:px-7.5">
+          <div className="flex itmes-center gap-3">
             <div className="flex items-center gap-1">
               <input type="checkbox" />
               <p>Sales</p>
@@ -124,49 +118,34 @@ const NewProduct = () => {
 
           {/* Tab bar */}
 
-          <div>
-            <div className="sm:hidden">
-              <label htmlFor="tabs" className="sr-only">
-                Select a tab
-              </label>
-              <select
-                id="tabs"
-                name="tabs"
-                value={activeTab}
-                onChange={(e) => handleTabClick(e.target.value)}
-                className="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-              >
-                {tabs.map((tab) => (
-                  <option key={tab.name} value={tab.name}>
-                    {tab.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="hidden sm:block">
-              <div className="border-b border-gray-200">
-                <nav aria-label="Tabs" className="-mb-px flex space-x-8 px-5 sm:px-7.5">
-                  {tabs.map((tab) => (
-                    <button
-                      key={tab.name}
-                      onClick={() => handleTabClick(tab.name)}
-                      aria-current={activeTab === tab.name ? 'page' : undefined}
-                      className={classNames(
-                        activeTab === tab.name
-                          ? 'border-indigo-500 text-indigo-600'
-                          : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                        'whitespace-nowrap border-b-2 px-1 py-4 text-sm font-medium',
-                      )}
-                    >
-                      {tab.name}
-                    </button>
-                  ))}
-                </nav>
-              </div>
-            </div>
-            <div className='px-5 sm:px-7.5'>
+          <div className="my-4">
+            <ul className="flex border-b">
+              {[
+                'General Information',
+                'Attribute & Variants',
+                'Sales',
+                'Purchase',
+                'Inventory',
+                'Accounting',
+              ].map((tab) => (
+                <li key={tab} className="-mb-px mr-1">
+                  <button
+                    className={`bg-white dark:bg-boxdark inline-block py-2 px-4 font-semibold ${
+                      activeTab === tab
+                        ? 'border-l border-t border-r rounded-t text-blue-700'
+                        : 'text-blue-500 hover:text-blue-800'
+                    }`}
+                    onClick={() => setActiveTab(tab)}
+                  >
+                    {tab.charAt(0).toUpperCase() +
+                      tab.slice(1).replace('-', ' ')}
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4">
               {activeTab === 'General Information' && <Info />}
-              {activeTab === 'Attributes & Variants' && <Attribute />}
+              {activeTab === 'Attribute & Variants' && <Attribute />}
               {activeTab === 'Sales' && <p>Company content</p>}
               {activeTab === 'Purchase' && <Purchase />}
               {activeTab === 'Inventory' && <Inventory />}
@@ -175,15 +154,23 @@ const NewProduct = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between items-center">
           <div className="flex flex-row gap-1">
-            <CustomBtn title="Send Message" fill={true} />
-            <CustomBtn title="Log note" fill={false} />
-            <CustomBtn title="Activities" fill={false} />
+            <div className="p-2 bg-bodydark2 rounded-md text-white">
+              Send message
+            </div>
+            <div className="p-2 bg-bodydark2 rounded-md text-white">
+              Log note
+            </div>
+            <div className="p-2 bg-bodydark2 rounded-md text-white">
+              Activities
+            </div>
           </div>
-          <p>
-            Follow
-          </p>
+          <div className="flex flex-row gap-3">
+            <IconSearch />
+            <IconUser />
+            <p className="text-sm text-success font-bold">Following</p>
+          </div>
         </div>
       </div>
     </>

@@ -1,4 +1,4 @@
-import { imgGear } from '../../images/icon';
+import { IconGear } from '../../images/icon';
 
 const Settings = () => {
   return (
@@ -16,7 +16,7 @@ const Settings = () => {
             </div>
             <div className="flex flex-row text-center items-center gap-2 font-bold">
               Setting
-              <img src={imgGear} alt="gear" className="w-4 h-4" />
+              <IconGear />
             </div>
           </div>
 
