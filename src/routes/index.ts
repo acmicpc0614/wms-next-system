@@ -11,6 +11,12 @@ const NewReceipt = lazy(
 const Deliveries = lazy(
   () => import('../pages/Operations/Transfers/Deliveries'),
 );
+const DeliveriesDetail = lazy(
+  () => import('../pages/Operations/Transfers/DeliveriesDetail'),
+);
+const NewDeliveries = lazy(
+  () => import('../pages/Operations/Transfers/NewDeliveries'),
+);
 const Manufacturings = lazy(
   () => import('../pages/Operations/Transfers/Manufacturings'),
 );
@@ -66,6 +72,16 @@ const coreRoutes = [
     path: '/operations/deliveries',
     title: 'Deliveries',
     component: Deliveries,
+  },
+  {
+    path: '/operations/deliveries/detail/:id',
+    title: 'Deliveries Detail',
+    component: DeliveriesDetail,
+  },
+  {
+    path: '/operations/deliveries/new',
+    title: 'New Deliveries',
+    component: NewDeliveries,
   },
   {
     path: '/operations/manufacturings',

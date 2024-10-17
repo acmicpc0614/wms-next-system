@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { imgGear } from '../../images/icon';
+import { IconGear } from '../../images/icon';
 import Toolbar from '../Toolbar';
 
 interface TopSearchBarProps {
@@ -32,7 +32,7 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
           </div>
           <div className="flex flex-row text-center items-center gap-2 font-bold">
             {title}
-            <img src={imgGear} alt="gear" className="w-4 h-4" />
+            <IconGear />
           </div>
         </div>
 

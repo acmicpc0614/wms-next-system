@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ManufactoringsData, ReceiptsData } from '../../../store/StaticData';
+import { DeliveriesData, ManufactoringsData } from '../../../store/StaticData';
 import {
   EmptyIconStar,
   IconArrowRotateLeft,
+  IconGear,
   IconSearch,
   IconThMenu,
   IconUser,
-  IconGear,
 } from '../../../images/icon';
 import CustomBtn from '../../../components/CustomBtn';
 
@@ -20,7 +20,7 @@ interface Receipt {
   Status: string;
 }
 
-const ReceiptDetail: React.FC = () => {
+const DeliveriesDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
 
   const [data, setData] = useState<Receipt | null>(null);
@@ -28,11 +28,11 @@ const ReceiptDetail: React.FC = () => {
 
   const navigate = useNavigate();
   const handleReturnClick = () => {
-    navigate('/operations/receipts/');
+    navigate('/operations/deliveries/');
   };
 
   useEffect(() => {
-    const foundData = ReceiptsData.find((item) => item.id === id);
+    const foundData = DeliveriesData.find((item) => item.id === id);
     setData(foundData || null);
   }, [id]);
 
@@ -44,7 +44,7 @@ const ReceiptDetail: React.FC = () => {
     <div className="flex flex-col gap-3">
       <div className="flex flex-row justify-between">
         <div className="flex flex-row gap-4">
-          <CustomBtn title="New" clickedPath="/operations/receipts/new" />
+          <CustomBtn title="New" clickedPath="/operations/deliveries/new" />
           <div className="flex flex-col">
             <p>Receipts</p>
             <div className="flex flex-row items-center gap-2">
@@ -153,20 +153,20 @@ const ReceiptDetail: React.FC = () => {
             ))}
           </ul>
           <div className="">
-            {activeTab === 'Operations' && <ReceiptDetailOperationTable />}
+            {activeTab === 'Operations' && <DeliveriesDetailOperationTable />}
             {activeTab === 'Additional Info' && <p>Log note content</p>}
             {activeTab === 'Note' && <p>Activities content</p>}
           </div>
         </div>
         <div className="flex justify-between items-center">
           <div className="flex flex-row gap-1">
-            <div className="p-2 bg-bodydark2 rounded-md text-white">
+            <div className="p-2 bg-bodydark2 rounded-md text-white hover:cursor-pointer hover:bg-bodydark">
               Send message
             </div>
-            <div className="p-2 bg-bodydark2 rounded-md text-white">
+            <div className="p-2 bg-bodydark2 rounded-md text-white hover:cursor-pointer hover:bg-bodydark">
               Log note
             </div>
-            <div className="p-2 bg-bodydark2 rounded-md text-white">
+            <div className="p-2 bg-bodydark2 rounded-md text-white hover:cursor-pointer hover:bg-bodydark">
               Activities
             </div>
           </div>
@@ -181,9 +181,9 @@ const ReceiptDetail: React.FC = () => {
   );
 };
 
-export default ReceiptDetail;
+export default DeliveriesDetail;
 
-const ReceiptDetailOperationTable = () => {
+const DeliveriesDetailOperationTable = () => {
   return (
     <>
       <div className="mt-2 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
@@ -195,15 +195,18 @@ const ReceiptDetailOperationTable = () => {
                   <input type="checkbox" />
                 </th>
                 <th className="py-4 px-4 font-semibold text-black dark:text-white">
-                  Warehouse
+                  Product
                 </th>
-                <th className="py-4 px-4 font-semibold text-black dark:text-white">
-                  Address
+                <th className="py-4 px-4 font-semibold text-black dark:text-white text-center">
+                  Demand
+                </th>
+                <th className="py-4 px-4 font-semibold text-black dark:text-white text-center">
+                  Quantity
                 </th>
               </tr>
             </thead>
             <tbody>
-              {ManufactoringsData.map((item, idx) => (
+              {DeliveriesDetailData.map((item, idx) => (
                 <tr
                   key={idx}
                   className={`${
@@ -215,11 +218,18 @@ const ReceiptDetailOperationTable = () => {
                       <input type="checkbox" />
                     </div>
                   </td>
-                  <td className=" py-2 px-4  text-sm dark:border-strokedark hover:underline">
-                    <p className="text-sm">{item.Reference}</p>
+                  <td className=" py-2 px-4 min-w-[400px] text-sm dark:border-strokedark hover:underline">
+                    <p className="text-sm">{item.Product}</p>
                   </td>
-                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
-                    <p className="text-black dark:text-white">{item.Start}</p>
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark text-center">
+                    <p className="text-black dark:text-white text-center">
+                      {item.Demand}
+                    </p>
+                  </td>
+                  <td className=" py-2 px-4  text-sm dark:border-strokedark text-center">
+                    <p className="text-black dark:text-white text-center">
+                      {item.Quantity}
+                    </p>
                   </td>
                 </tr>
               ))}
@@ -230,3 +240,31 @@ const ReceiptDetailOperationTable = () => {
     </>
   );
 };
+
+const DeliveriesDetailData = [
+  {
+    Product: 'Cassual T-shirt',
+    Demand: 1,
+    Quantity: 1,
+  },
+  {
+    Product: 'Blck embroidered t-shirt',
+    Demand: 2,
+    Quantity: 2,
+  },
+  {
+    Product: 'Cozy Sweater',
+    Demand: 1,
+    Quantity: 1,
+  },
+  {
+    Product: 'Summer Hat',
+    Demand: 1,
+    Quantity: 1,
+  },
+  {
+    Product: 'Jean Jacket',
+    Demand: 1,
+    Quantity: 1,
+  },
+];

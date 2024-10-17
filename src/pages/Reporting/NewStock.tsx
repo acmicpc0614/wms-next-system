@@ -3,9 +3,14 @@ import {
   Icon272Cross,
   IconBxsCloudUpload,
   IconPushpin,
-  imgGear,
+  IconGear,
 } from '../../images/icon';
-import { FaListUl, FaRegFileAlt, FaRegChartBar, FaCaretDown } from 'react-icons/fa';
+import {
+  FaListUl,
+  FaRegFileAlt,
+  FaRegChartBar,
+  FaCaretDown,
+} from 'react-icons/fa';
 
 const NewStock = () => {
   return (
@@ -17,7 +22,7 @@ const NewStock = () => {
             <div className="flex flex-col">
               <p>Stock</p>
               <div className="flex flex-row items-center">
-                <img src={imgGear} className="w-4 h-4" alt="gear" />
+                <IconGear />
               </div>
             </div>
             <IconBxsCloudUpload />
@@ -51,11 +56,11 @@ const NewStock = () => {
                 <p className="text-xs">Solid </p>
                 <p className="text-xs">0.00 Units</p>
               </div>
-            </div>  
+            </div>
             <div className="h-full px-3 py-2 rounded-r-md border-2 border-l-0 border-bodydark2 flex flex-row gap-1 items-center hover:cursor-pointer hover:bg-bodydark hover:text-graydark">
               <p>More</p>
               <FaCaretDown />
-            </div>  
+            </div>
           </div>
           <div className="flex flex-row items-center">
             <IconPushpin />

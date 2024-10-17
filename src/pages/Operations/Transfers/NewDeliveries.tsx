@@ -11,16 +11,16 @@ import {
   IconUser,
 } from '../../../images/icon';
 
-const NewReceipt = () => {
+const NewDeliveries = () => {
   const [activeTab, setActiveTab] = useState('Operations');
   return (
     <>
       <div className="flex flex-col gap-3">
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-4 items-center">
-            <CustomBtn title="New" clickedPath="/operations/receipts/new" />
+            <CustomBtn title="New" clickedPath="/operations/deliveries/new" />
             <div className="flex flex-col">
-              <p>Receipts</p>
+              <p>Deliveries</p>
               <div className="flex flex-row items-center">
                 <IconGear />
               </div>
@@ -47,12 +47,12 @@ const NewReceipt = () => {
         <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
           <div className="flex flex-row gap-5 items-center h-10">
             <EmptyIconStar />
-            <h1 className="text-3xl">New Receipt</h1>
+            <h1 className="text-3xl">New Delivery</h1>
           </div>
           <div className="flex flex-row gap-5">
             <div className="flex flex-row gap-10 w-[50%]">
               <div className="flex flex-col gap-2">
-                <p>Receive From</p>
+                <p>Delivery Address</p>
                 <p>Operation Type</p>
               </div>
               <div className="flex flex-col gap-2">
@@ -61,22 +61,19 @@ const NewReceipt = () => {
                   className="border-b-[1px] border-b-bodydark2 focus:border-b-success focus:outline-none dark:bg-boxdark"
                   placeholder="e.g. Lumber Inc"
                 />
-                <p>Time: Receipts</p>
+                <p>Time: Deliveries</p>
               </div>
             </div>
             <div className="flex flex-row gap-10 w-[50%]">
               <div className="flex flex-col gap-2">
                 <p>Scheduled Data</p>
+                <p>Product Availability</p>
                 <p>Source Document</p>
               </div>
               <div className="flex flex-col gap-2">
                 <p>10/10/2024 10:07:10</p>
-
-                <input
-                  type="string"
-                  className="border-b-[1px] border-b-bodydark2 focus:border-b-success focus:outline-none dark:bg-boxdark"
-                  placeholder="e.g. Lumber Inc"
-                />
+                <p className="text-success">Available</p>
+                <p>Clothes Shop/0001</p>
               </div>
             </div>
           </div>
@@ -100,9 +97,11 @@ const NewReceipt = () => {
                 </li>
               ))}
             </ul>
-            <div className="">
-              {activeTab === 'Operations' && <ReceiptDetailOperationTable />}
-              {activeTab === 'Additional Info' && <p>Log note content</p>}
+            <div className="mt-4">
+              {activeTab === 'Operations' && <DeliveryDetailOperationTable />}
+              {activeTab === 'Additional Info' && (
+                <DeliveryDetailAdditionalInfo />
+              )}
               {activeTab === 'Note' && <p>Activities content</p>}
             </div>
           </div>
@@ -130,9 +129,9 @@ const NewReceipt = () => {
   );
 };
 
-export default NewReceipt;
+export default NewDeliveries;
 
-const ReceiptDetailOperationTable = () => {
+const DeliveryDetailOperationTable = () => {
   return (
     <>
       <div className="mt-2 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
@@ -152,8 +151,8 @@ const ReceiptDetailOperationTable = () => {
               </tr>
             </thead>
             <tbody>
-              {NewReceiptData.length > 0 ? (
-                NewReceiptData.map((item, idx) => (
+              {NewDeliveriesData.length > 0 ? (
+                NewDeliveriesData.map((item, idx) => (
                   <tr
                     key={idx}
                     className={`${
@@ -189,9 +188,30 @@ const ReceiptDetailOperationTable = () => {
   );
 };
 
-interface NewReceiptDataType {
+const DeliveryDetailAdditionalInfo = () => {
+  return (
+    <div className="flex flex-row gap-4">
+      <div className="flex flex-col gap-4 w-[50%]">
+        <p className="font-bold underline">SHIPPING INFORMATION</p>
+        <p>Carrier</p>
+        <p>Tracking Reference</p>
+        <p>Weight</p>
+        <p>Weight for shipping</p>
+      </div>
+      <div className="flex flex-col gap-4">
+        <p className="font-bold underline">OTHER INFORMATION</p>
+        <p>Shipping Policy</p>
+        <p>Responsible</p>
+        <p>Sales Order</p>
+        <p>Project</p>
+      </div>
+    </div>
+  );
+};
+
+interface NewDeliveriesDataType {
   Reference: string;
   Start: string; // Adjust the type as necessary (e.g., Date if applicable)
 }
 
-const NewReceiptData: NewReceiptDataType[] = [];
+const NewDeliveriesData: NewDeliveriesDataType[] = [];
