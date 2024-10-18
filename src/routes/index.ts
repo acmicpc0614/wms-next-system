@@ -38,6 +38,8 @@ const PhysicalDetail = lazy(
 );
 
 const Scrap = lazy(() => import('../pages/Operations/Adjustments/Scrap'));
+const Replenishment = lazy(() => import('../pages/Operations/Replenishment'));
+
 const Products = lazy(() => import('../pages/Products/Products'));
 const NewProduct = lazy(() => import('../pages/Products/NewProduct'));
 const ProductVariants = lazy(() => import('../pages/Products/ProductVariants'));
@@ -133,6 +135,11 @@ const coreRoutes = [
     path: '/operations/scrap',
     title: 'Scrap',
     component: Scrap,
+  },
+  {
+    path: '/operations/replenishment',
+    title: 'Replenishment',
+    component: Replenishment,
   },
   {
     path: '/products/products',
