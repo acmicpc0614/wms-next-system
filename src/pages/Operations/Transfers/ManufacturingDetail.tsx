@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ManufactoringsData, ReceiptsData } from '../../../store/StaticData';
+import { ReceiptsData } from '../../../store/StaticData';
 import {
   EmptyIconStar,
   IconArrowRotateLeft,
