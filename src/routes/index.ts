@@ -58,6 +58,9 @@ const NewWarehouses = lazy(() => import('../pages/Configuration/NewWarehouse'));
 const OperationsTypes = lazy(
   () => import('../pages/Configuration/OperationsTypes'),
 );
+const NewOperationsTypes = lazy(
+  () => import('../pages/Configuration/NewOperationTypes'),
+);
 const ProductCategories = lazy(
   () => import('../pages/Configuration/ProductCategories'),
 );
@@ -201,6 +204,11 @@ const coreRoutes = [
     path: '/configuration/operationstypes',
     title: 'Operatons Types',
     component: OperationsTypes,
+  },
+  {
+    path: '/configuration/operationstypes/new',
+    title: 'New Operatons Types',
+    component: NewOperationsTypes,
   },
   {
     path: '/configuration/productcategories',
