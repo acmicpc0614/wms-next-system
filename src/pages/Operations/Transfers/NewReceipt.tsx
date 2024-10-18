@@ -106,23 +106,23 @@ const NewReceipt = () => {
               {activeTab === 'Note' && <p>Activities content</p>}
             </div>
           </div>
-          <div className="flex justify-between items-center">
-            <div className="flex flex-row gap-1">
-              <div className="p-2 bg-bodydark2 rounded-md text-white">
-                Send message
-              </div>
-              <div className="p-2 bg-bodydark2 rounded-md text-white">
-                Log note
-              </div>
-              <div className="p-2 bg-bodydark2 rounded-md text-white">
-                Activities
-              </div>
+        </div>
+        <div className="flex justify-between items-center">
+          <div className="flex flex-row gap-1">
+            <div className="p-2 bg-bodydark2 rounded-md text-white">
+              Send message
             </div>
-            <div className="flex flex-row gap-3">
-              <IconSearch />
-              <IconUser />
-              <p className="text-sm text-success font-bold">Following</p>
+            <div className="p-2 bg-bodydark2 rounded-md text-white">
+              Log note
             </div>
+            <div className="p-2 bg-bodydark2 rounded-md text-white">
+              Activities
+            </div>
+          </div>
+          <div className="flex flex-row gap-3">
+            <IconSearch />
+            <IconUser />
+            <p className="text-sm text-success font-bold">Following</p>
           </div>
         </div>
       </div>

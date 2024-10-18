@@ -20,6 +20,16 @@ const NewDeliveries = lazy(
 const Manufacturings = lazy(
   () => import('../pages/Operations/Transfers/Manufacturings'),
 );
+const ManufacturingsDetail = lazy(
+  () => import('../pages/Operations/Transfers/ManufacturingDetail'),
+);
+const ProductMoves = lazy(
+  () => import('../pages/Operations/Transfers/ProductMoves'),
+);
+const ManufacturingOverview = lazy(
+  () => import('../pages/Operations/Transfers/ManufacturingOverview'),
+);
+
 const PhysicalInventory = lazy(
   () => import('../pages/Operations/Adjustments/PhysicalInventory'),
 );
@@ -28,7 +38,9 @@ const Scrap = lazy(() => import('../pages/Operations/Adjustments/Scrap'));
 const Products = lazy(() => import('../pages/Products/Products'));
 const NewProduct = lazy(() => import('../pages/Products/NewProduct'));
 const ProductVariants = lazy(() => import('../pages/Products/ProductVariants'));
-const NewProductVariant = lazy(() => import('../pages/Products/NewProductVariant'));
+const NewProductVariant = lazy(
+  () => import('../pages/Products/NewProductVariant'),
+);
 const Stock = lazy(() => import('../pages/Reporting/Stock'));
 const NewStock = lazy(() => import('../pages/Reporting/NewStock'));
 const MovesAnalysis = lazy(() => import('../pages/Reporting/MovesAnalysis'));
@@ -88,6 +100,21 @@ const coreRoutes = [
     path: '/operations/manufacturings',
     title: 'Manufacturings',
     component: Manufacturings,
+  },
+  {
+    path: '/operations/manufacturings/detail/:id',
+    title: 'Manufacturings',
+    component: ManufacturingsDetail,
+  },
+  {
+    path: '/operations/manufacturings/productmove',
+    title: 'Product Moves',
+    component: ProductMoves,
+  },
+  {
+    path: '/operations/manufacturings/overview',
+    title: 'Overview',
+    component: ManufacturingOverview,
   },
   {
     path: '/operations/physicalinventory',

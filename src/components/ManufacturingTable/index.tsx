@@ -1,14 +1,14 @@
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { EmptyIconStar } from '../../images/icon';
 import { ManufactoringsData } from '../../store/StaticData';
 import { getBaseColor } from '../../utils/Actions';
 import { imgclock } from '../../images/icon';
 
 const ManufacturingTable = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleClick = (reference: any) => {
     console.log(reference);
-    // navigate(`/operations/deliveries/detail/${reference}`);
+    navigate(`/operations/manufacturings/detail/${reference}`);
   };
   return (
     <>
