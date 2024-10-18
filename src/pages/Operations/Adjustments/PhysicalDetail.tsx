@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { DeliveriesData } from '../../../store/StaticData';
+import { InventoryData } from '../../../store/StaticData';
 import {
   EmptyIconStar,
   IconArrowRotateLeft,
@@ -10,29 +10,31 @@ import {
   IconUser,
 } from '../../../images/icon';
 import CustomBtn from '../../../components/CustomBtn';
+import GeneralInformationTab from '../../../components/PhysicalInventory/GeneralInformattionTab';
+import SalesTab from '../../../components/PhysicalInventory/SalesTab';
 
-interface Receipt {
+interface InventoryInterface {
   id: string;
-  Reference: string;
-  Contact: string;
+  Product: string; // Added Product property
+  OnHandQueen: number; // Corrected property name
+  CountedQuantity: number;
+  Difference: number;
   ScheduledData: string;
-  SourceDoc: string;
-  Status: string;
+  User: string;
 }
 
 const DeliveriesDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-
-  const [data, setData] = useState<Receipt | null>(null);
-  const [activeTab, setActiveTab] = useState('Operations');
+  const [data, setData] = useState<InventoryInterface | null>(null);
+  const [activeTab, setActiveTab] = useState('General Information');
 
   const navigate = useNavigate();
   const handleReturnClick = () => {
-    navigate('/operations/deliveries/');
+    navigate('/operations/physicalinventory/');
   };
 
   useEffect(() => {
-    const foundData = DeliveriesData.find((item) => item.id === id);
+    const foundData = InventoryData.find((item) => item.id === id);
     setData(foundData || null);
   }, [id]);
 
@@ -46,9 +48,9 @@ const DeliveriesDetail: React.FC = () => {
         <div className="flex flex-row gap-4">
           <CustomBtn title="New" clickedPath="/operations/deliveries/new" />
           <div className="flex flex-col">
-            <p>Receipts</p>
+            <p className="text-success font-semibold">Inventory Adjustment</p>
             <div className="flex flex-row items-center gap-2">
-              {data.Reference}
+              {data.Product}
               <IconGear />
             </div>
           </div>
@@ -102,42 +104,40 @@ const DeliveriesDetail: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-row gap-1">
-        <CustomBtn title="Print" fill={true} />
-        <CustomBtn title="Return" fill={true} />
+        <CustomBtn title="Update Quantity" fill={true} />
+        <CustomBtn title="Replenish" fill={true} />
+        <CustomBtn title="Print Labels" fill={true} />
       </div>
       <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
         <div className="flex flex-row gap-5 items-center h-10">
           <EmptyIconStar />
-          <h1 className="text-3xl">{data.Reference}</h1>
+          <h1 className="text-3xl">{data.Product}</h1>
         </div>
-        <div className="flex flex-row gap-5">
-          <div className="flex flex-row gap-10 w-[50%]">
-            <div className="flex flex-col gap-2">
-              <p>Receive From</p>
-              <p>Operation Type</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <p className="font-bold text-success">{data.Contact}</p>
-            </div>
+        <div className="flex flex-row gap-6 my-4">
+          <div className="flex flex-row gap-2">
+            <input type="checkbox" />
+            <p className="text-sm">Sales</p>
           </div>
-          <div className="flex flex-row gap-10 w-[50%]">
-            <div className="flex flex-col gap-2">
-              <p>Scheduled Data</p>
-              <p>Effective Data</p>
-              <p>Source Document</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <p>{data.ScheduledData}</p>
-              <p>{data.ScheduledData}</p>
-              <p>{data.SourceDoc}</p>
-            </div>
+          <div className="flex flex-row gap-2">
+            <input type="checkbox" />
+            <p className="text-sm">Purchase</p>
+          </div>
+          <div className="flex flex-row gap-2">
+            <input type="checkbox" />
+            <p className="text-sm">Point of Sale</p>
           </div>
         </div>
 
         {/* Tab bar */}
         <div className="mb-4">
           <ul className="flex border-b">
-            {['Operations', 'Additional Info', 'Note'].map((tab) => (
+            {[
+              'General Information',
+              'Sales',
+              'Purchase',
+              'Inventory',
+              'Accounting',
+            ].map((tab) => (
               <li key={tab} className="-mb-px mr-1">
                 <button
                   className={`bg-white dark:bg-boxdark inline-block py-2 px-4 font-semibold ${
@@ -153,9 +153,11 @@ const DeliveriesDetail: React.FC = () => {
             ))}
           </ul>
           <div className="">
-            {activeTab === 'Operations' && <DeliveriesDetailOperationTable />}
-            {activeTab === 'Additional Info' && <p>Log note content</p>}
-            {activeTab === 'Note' && <p>Activities content</p>}
+            {activeTab === 'General Information' && <GeneralInformationTab />}
+            {activeTab === 'Sales' && <SalesTab />}
+            {activeTab === 'Purchase' && <SalesTab />}
+            {activeTab === 'Inventory' && <GeneralInformationTab />}
+            {activeTab === 'Accounting' && <SalesTab />}
           </div>
         </div>
       </div>
@@ -182,89 +184,3 @@ const DeliveriesDetail: React.FC = () => {
 };
 
 export default DeliveriesDetail;
-
-const DeliveriesDetailOperationTable = () => {
-  return (
-    <>
-      <div className="mt-2 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
-        <div className="max-w-full overflow-x-auto">
-          <table className="w-full table-auto">
-            <thead>
-              <tr className="bg-gray-2 text-left dark:bg-meta-4 border-[#aaaaaa] border-b border-t">
-                <th className="py-4 px-4 w-[50px] font-semibold text-black dark:text-white">
-                  <input type="checkbox" />
-                </th>
-                <th className="py-4 px-4 font-semibold text-black dark:text-white">
-                  Product
-                </th>
-                <th className="py-4 px-4 font-semibold text-black dark:text-white text-center">
-                  Demand
-                </th>
-                <th className="py-4 px-4 font-semibold text-black dark:text-white text-center">
-                  Quantity
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {DeliveriesDetailData.map((item, idx) => (
-                <tr
-                  key={idx}
-                  className={`${
-                    idx % 2 === 1 ? 'bg-gray-2 dark:bg-meta-4' : ''
-                  } hover:cursor-pointer border-b border-[#aaaaaa]`}
-                >
-                  <td className=" py-2 px-4  text-sm dark:border-strokedark">
-                    <div className="flex flex-row gap-2">
-                      <input type="checkbox" />
-                    </div>
-                  </td>
-                  <td className=" py-2 px-4 min-w-[400px] text-sm dark:border-strokedark hover:underline">
-                    <p className="text-sm">{item.Product}</p>
-                  </td>
-                  <td className=" py-2 px-4  text-sm dark:border-strokedark text-center">
-                    <p className="text-black dark:text-white text-center">
-                      {item.Demand}
-                    </p>
-                  </td>
-                  <td className=" py-2 px-4  text-sm dark:border-strokedark text-center">
-                    <p className="text-black dark:text-white text-center">
-                      {item.Quantity}
-                    </p>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </>
-  );
-};
-
-const DeliveriesDetailData = [
-  {
-    Product: 'Cassual T-shirt',
-    Demand: 1,
-    Quantity: 1,
-  },
-  {
-    Product: 'Blck embroidered t-shirt',
-    Demand: 2,
-    Quantity: 2,
-  },
-  {
-    Product: 'Cozy Sweater',
-    Demand: 1,
-    Quantity: 1,
-  },
-  {
-    Product: 'Summer Hat',
-    Demand: 1,
-    Quantity: 1,
-  },
-  {
-    Product: 'Jean Jacket',
-    Demand: 1,
-    Quantity: 1,
-  },
-];

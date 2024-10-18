@@ -33,6 +33,9 @@ const ManufacturingOverview = lazy(
 const PhysicalInventory = lazy(
   () => import('../pages/Operations/Adjustments/PhysicalInventory'),
 );
+const PhysicalDetail = lazy(
+  () => import('../pages/Operations/Adjustments/PhysicalDetail'),
+);
 
 const Scrap = lazy(() => import('../pages/Operations/Adjustments/Scrap'));
 const Products = lazy(() => import('../pages/Products/Products'));
@@ -120,6 +123,11 @@ const coreRoutes = [
     path: '/operations/physicalinventory',
     title: 'physical Inventory',
     component: PhysicalInventory,
+  },
+  {
+    path: '/operations/physicalinventory/detail/:id',
+    title: 'Physical Inventory Detail',
+    component: PhysicalDetail,
   },
   {
     path: '/operations/scrap',

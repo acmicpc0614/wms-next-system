@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import {
   Icon272Cross,
   IconArrowRotateLeft,
@@ -6,8 +7,9 @@ import {
 import { InventoryData } from '../../store/StaticData';
 
 const InventoryAdjustmentsTable = () => {
+  const navigate = useNavigate();
   const handleClick = (reference: any) => {
-    console.log(reference);
+    navigate(`/operations/physicalinventory/detail/${reference}`);
   };
   return (
     <>

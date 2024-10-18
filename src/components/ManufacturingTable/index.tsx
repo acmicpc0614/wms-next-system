@@ -7,7 +7,7 @@ import { imgclock } from '../../images/icon';
 const ManufacturingTable = () => {
   const navigate = useNavigate();
   const handleClick = (reference: any) => {
-    console.log(reference);
+    // console.log(reference);
     navigate(`/operations/manufacturings/detail/${reference}`);
   };
   return (
