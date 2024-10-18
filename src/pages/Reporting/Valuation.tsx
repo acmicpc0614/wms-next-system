@@ -10,7 +10,7 @@ const Valuation = () => {
         title="Stock Valuation"
         btns={buttons}
         pagination={true}
-        tools={true}
+        tools={false}
       />
       <div>
         <ValuationTable />
