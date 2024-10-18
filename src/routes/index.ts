@@ -54,6 +54,7 @@ const Valuation = lazy(() => import('../pages/Reporting/Valuation'));
 const Profile = lazy(() => import('../pages/Account/Profile'));
 const Settings = lazy(() => import('../pages/Configuration/Settings'));
 const Warehouses = lazy(() => import('../pages/Configuration/Warehouses'));
+const NewWarehouses = lazy(() => import('../pages/Configuration/NewWarehouse'));
 const OperationsTypes = lazy(
   () => import('../pages/Configuration/OperationsTypes'),
 );
@@ -190,6 +191,11 @@ const coreRoutes = [
     path: '/configuration/warehouses',
     title: 'Warehouses',
     component: Warehouses,
+  },
+  {
+    path: '/configuration/warehouses/new',
+    title: 'New Warehouses',
+    component: NewWarehouses,
   },
   {
     path: '/configuration/operationstypes',
