@@ -64,6 +64,9 @@ const NewOperationsTypes = lazy(
 const ProductCategories = lazy(
   () => import('../pages/Configuration/ProductCategories'),
 );
+const NewProductCategory = lazy(
+  () => import('../pages/Configuration/NewProductCategory'),
+);
 const Attributes = lazy(() => import('../pages/Configuration/Attributes'));
 const DeliveryMethods = lazy(
   () => import('../pages/Configuration/DeliveryMethods'),
@@ -214,6 +217,11 @@ const coreRoutes = [
     path: '/configuration/productcategories',
     title: 'Product Categories',
     component: ProductCategories,
+  },
+  {
+    path: '/configuration/productcategories/new',
+    title: 'New Category',
+    component: NewProductCategory,
   },
   {
     path: '/configuration/attributes',

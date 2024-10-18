@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import TopSearchBar from '../../components/TopSearchBar';
+import { IconSearch, IconUser } from '../../images/icon';
 
-const NewOperationsTypes = () => {
+const NewProductCategory = () => {
   const buttons = [{ label: 'New', path: 'new' }];
   const [activeTab, setActiveTab] = useState('General');
   return (
@@ -14,9 +15,9 @@ const NewOperationsTypes = () => {
           tools={false}
         />
         <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-          <div className="flex flex-row gap-5 items-center h-10">
-            <p className="text-md">Operation Type</p>
-          </div>
+          <p className="text-md">Category</p>
+          <p className="text-3xl">All</p>
+          <p className="text-md">Parent Category</p>
           <div className="flex flex-row gap-5">
             <input
               type="string"
@@ -45,8 +46,23 @@ const NewOperationsTypes = () => {
               ))}
             </ul>
             <div className="">
-              {activeTab === 'General' && <NewOperationGeneralTab />}
+              {activeTab === 'General' && <NewCategoryTab />}
             </div>
+          </div>
+        </div>
+        <div className="flex justify-between items-center">
+          <div className="flex flex-row gap-1">
+            <div className="p-2 bg-bodydark2 rounded-md text-white">
+              Send message
+            </div>
+            <div className="p-2 bg-bodydark2 rounded-md text-white">
+              Log note
+            </div>
+          </div>
+          <div className="flex flex-row gap-3">
+            <IconSearch />
+            <IconUser />
+            <p className="text-sm text-success font-bold">Following</p>
           </div>
         </div>
       </div>
@@ -54,68 +70,45 @@ const NewOperationsTypes = () => {
   );
 };
 
-export default NewOperationsTypes;
+export default NewProductCategory;
 
-const NewOperationGeneralTab = () => {
-  const [selectedOption, setSelectedOption] = useState('');
-
-  const handleChange = (event: any) => {
-    setSelectedOption(event.target.value);
-  };
-  const Options = [
-    {
-      value: 'option1',
-      title: 'At Confirmation',
-    },
-    {
-      value: 'option2',
-      title: 'Manually',
-    },
-    {
-      value: 'option3',
-      title: 'Before scheduled date ',
-    },
-  ];
+const NewCategoryTab = () => {
   return (
     <div className="flex flex-col mx-auto p-6 bg-white rounded-lg shadow dark:bg-boxdark">
       <div className="flex flex-row">
         <div className="flex flex-col w-[50%] gap-4">
+          <h3 className="text-lg border-b-2 border-bodydark1 mt-4 mr-4">
+            LOGISTICS
+          </h3>
           <div className="flex flex-row gap-4 ">
-            <p className="font-semibold w-[150px]">Type of Operation</p>
+            <p className="font-semibold">Force Removal Strategy</p>
+          </div>
+          <h3 className="text-lg border-b-2 border-bodydark1 mt-4 mr-4">
+            ACCOUNT PROPERTIES
+          </h3>
+          <div className="flex flex-row gap-4 ">
+            <p className="font-semibold w-[150px]">Income Account</p>
+            <p className="font-semibold ">50001 Sales Account</p>
           </div>
 
           <div className="flex flex-row gap-4 ">
-            <p className="font-semibold w-[150px]">Sequence Prefix</p>
-          </div>
-
-          <div className="flex flex-row gap-4 ">
-            <p className="font-semibold w-[150px]">arcode</p>
+            <p className="font-semibold w-[150px]">Expense Account</p>
+            <p className="font-semibold ">
+              40001 Cost of Goods Sold in Trading
+            </p>
           </div>
 
           <div className="flex flex-row gap-4">
-            <p className="font-semibold w-[150px]">Product Type</p>
-            <div className="flex flex-col gap-4">
-              {Options.map((item, idx) => (
-                <label className="flex items-center" key={idx}>
-                  <input
-                    type="radio"
-                    value={item.value}
-                    checked={selectedOption === item.value}
-                    onChange={handleChange}
-                    className="form-radio h-4 w-4 text-success"
-                  />
-                  <span className="ml-2 font-semibold text-sm">
-                    {item.title}
-                  </span>
-                </label>
-              ))}
-            </div>
+            <p className="font-semibold w-[150px]">Downpayment Account</p>
           </div>
         </div>
         <div className="flex flex-col gap-4">
+          <h3 className="text-lg border-b-2 border-bodydark1 mt-4 mr-4">
+            INENTORY VALUATION
+          </h3>
           <div className="flex flex-row gap-4 ">
-            <p className="font-semibold w-[150px]">Create Backorder</p>
-            <p>Ask</p>
+            <p className="font-semibold w-[150px]">Costing Method</p>
+            <p>Standard Price</p>
           </div>
         </div>
       </div>
