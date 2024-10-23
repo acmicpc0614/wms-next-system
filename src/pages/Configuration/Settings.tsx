@@ -1,3 +1,4 @@
+import SettingContent from '../../components/SettingComponent';
 import { IconGear } from '../../images/icon';
 
 const Settings = () => {
@@ -43,7 +44,7 @@ const Settings = () => {
           </div>
           <div></div>
         </div>
-        this is setting content
+        <SettingContent />
       </div>
     </>
   );
