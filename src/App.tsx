@@ -25,6 +25,11 @@ function App() {
         position="top-right"
         reverseOrder={false}
         containerClassName="overflow-auto"
+        toastOptions={{
+          style: {
+            zIndex: 1000000
+          },
+        }}
       />
       <Routes>
         <Route path="/" element={<Navigate to="/overview" replace />} />

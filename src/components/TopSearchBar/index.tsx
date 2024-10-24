@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IconGear } from '../../images/icon';
-import Toolbar from '../Toolbar';
 
 interface TopSearchBarProps {
   btns?: { label: string; path: string }[]; // Array of button objects with label and path
@@ -13,8 +12,6 @@ interface TopSearchBarProps {
 const TopSearchBar: React.FC<TopSearchBarProps> = ({
   btns,
   title,
-  pagination,
-  tools,
 }) => {
   return (
     <>
