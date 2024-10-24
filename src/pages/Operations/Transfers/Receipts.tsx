@@ -4,7 +4,7 @@ import TopSearchBar from '../../../components/TopSearchBar';
 const Receipts = () => {
   const buttons = [{ label: 'New', path: 'new' }];
   return (
-    <div className="w-full h-full flex flex-col gap-5">
+    <div className="w-full h-full flex flex-col gap-4 min-w-2xl">
       <TopSearchBar title="Receipts" btns={buttons} />
       <ReceiptsTable />
     </div>

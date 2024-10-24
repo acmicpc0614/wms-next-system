@@ -18,7 +18,7 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
 }) => {
   return (
     <>
-      <div className="flex flex-row justify-between my-2 w-full">
+      <div className="flex flex-row justify-between w-full">
         <div className="flex flex-row gap-6 items-center">
           <div className="flex flex-row gap-2 items-center">
             {btns &&

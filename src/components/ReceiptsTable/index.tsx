@@ -75,10 +75,10 @@ const ReceiptsTable: React.FC = () => {
 
   return (
     <>
-      <div className="flex-1 flex justify-between flex-col rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+      <div className="flex-1 flex justify-between flex-col rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1 min-w-[900px]">
         <div className="relative">
           {selectedItem.length > 0 && (
-            <div className="absolute left-14 top-1 flex h-10 items-center space-x-3 bg-white dark:bg-meta-4 sm:left-12">
+            <div className="absolute left-14 top-1 flex h-10 items-center space-x-3 bg-gray-2 dark:bg-meta-4 sm:left-12">
               <button
                 type="button"
                 className="inline-flex items-center rounded bg-white  px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-white dark:bg-boxdark"
@@ -114,7 +114,7 @@ const ReceiptsTable: React.FC = () => {
                   className="min-w-[12rem] py-3.5 pr-3 text-left text-sm font-semibold text-gray-900 cursor-pointer"
                   onClick={() => handleSort('Reference')}
                 >
-                  Reference{' '}
+                  Reference&nbsp;
                   {sortKey === 'Reference'
                     ? sortOrder === 'asc'
                       ? '↑'
@@ -126,7 +126,7 @@ const ReceiptsTable: React.FC = () => {
                   className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
                   onClick={() => handleSort('Contact')}
                 >
-                  Contact{' '}
+                  Contact&nbsp;
                   {sortKey === 'Contact'
                     ? sortOrder === 'asc'
                       ? '↑'
@@ -138,7 +138,7 @@ const ReceiptsTable: React.FC = () => {
                   className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
                   onClick={() => handleSort('ScheduledData')}
                 >
-                  Scheduled Data{' '}
+                  Scheduled Data&nbsp;
                   {sortKey === 'ScheduledData'
                     ? sortOrder === 'asc'
                       ? '↑'
@@ -150,7 +150,7 @@ const ReceiptsTable: React.FC = () => {
                   className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
                   onClick={() => handleSort('SourceDoc')}
                 >
-                  Source Document{' '}
+                  Source Document&nbsp;
                   {sortKey === 'SourceDoc'
                     ? sortOrder === 'asc'
                       ? '↑'
@@ -162,7 +162,7 @@ const ReceiptsTable: React.FC = () => {
                   className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
                   onClick={() => handleSort('Status')}
                 >
-                  Status{' '}
+                  Status&nbsp;
                   {sortKey === 'Status'
                     ? sortOrder === 'asc'
                       ? '↑'
@@ -204,7 +204,7 @@ const ReceiptsTable: React.FC = () => {
                   </td>
                   <td
                     className={classNames(
-                      'flex flex-row gap-2 items-center whitespace-nowrap py-4 pr-3 text-sm font-medium hover:underline',
+                      'whitespace-nowrap py-4 pr-3 text-sm font-medium hover:underline ',
                       selectedItem.includes(item)
                         ? 'text-indigo-600'
                         : 'text-gray-900',
@@ -224,7 +224,7 @@ const ReceiptsTable: React.FC = () => {
                   </td>
                   <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 ">
                     <p
-                      className={`inline-flex rounded-ful py-1 px-3 text-sm font-medium rounded-full ${getBaseColor(
+                      className={`inline-flex rounded-ful py-1 px-3 text-sm font-semibold font-medium rounded-full ${getBaseColor(
                         { value: item.Status },
                       )}`}
                     >

@@ -3,7 +3,7 @@ import { CONFIRMED, DONE, DRAFT, READY } from './Consts';
 export const getBaseColor = ({ value }: { value: any }) => {
   switch (value) {
     case DRAFT:
-      return 'bg-bodydark1 text-boxdark-2';
+      return 'bg-bodydark1 text-boxdark-2 dark:bg-boxdark-2 dark:text-white';
     case READY:
       return 'bg-primary text-white';
     case DONE:
