@@ -14,3 +14,12 @@ export const getBaseColor = ({ value }: { value: any }) => {
       return 'bg-primary text-white';
   }
 };
+
+export const getInputClassNameForTable = (index: number) => {
+  const baseClasses =
+    'focus:border-b-[1px] focus:border-b-bodydark2 focus:outline-none text-sm';
+  const evenClasses = 'dark:bg-boxdark';
+  const oddClasses = 'dark:bg-meta-4 bg-gray-2';
+
+  return `${baseClasses} ${index % 2 === 0 ? evenClasses : oddClasses}`;
+};

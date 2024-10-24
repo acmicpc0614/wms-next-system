@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { IconPlayListRemove } from '../../../images/icon';
+import { getInputClassNameForTable } from '../../../utils/Actions';
 
 interface ReceiptItem {
   item: string;
@@ -34,32 +36,43 @@ const ReceiptDetailOperationTable: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">Receipt Data Entry</h2>
-      <table className="min-w-full border-collapse border border-gray-300">
+    <div className="">
+      <h2 className="text-xl font-bold my-6">Receipt Data Entry</h2>
+      <table className="min-w-full table-fixed divide-y divide-gray-300">
         <thead>
-          <tr>
-            <th className="border border-gray-300 p-2">Item</th>
-            <th className="border border-gray-300 p-2">Quantity</th>
-            <th className="border border-gray-300 p-2">Price</th>
-            <th className="border border-gray-300 p-2">Actions</th>
+          <tr className="bg-gray-2 text-left dark:bg-meta-4 border-[#aaaaaa] border-b border-t">
+            <th className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer min-w-[400px]">
+              Product
+            </th>
+            <th className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer w-[100px] min-w-22.5">
+              Quantity
+            </th>
+            <th className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer w-[100px] min-w-22.5">
+              Price
+            </th>
+            <th className=" py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer w-[60px]"></th>
           </tr>
         </thead>
         <tbody>
           {receiptData.map((item, index) => (
-            <tr key={index}>
-              <td className="border border-gray-300 p-2">
+            <tr
+              key={index}
+              className={`${
+                index % 2 === 1 ? 'bg-gray-2 dark:bg-meta-4' : 'dark:bg-boxdark'
+              } hover:cursor-pointer border-b border-[#aaaaaa]`}
+            >
+              <td className="relative px-7 sm:w-12 sm:px-6">
                 <input
                   type="text"
                   value={item.item}
                   onChange={(e) =>
                     handleInputChange(index, 'item', e.target.value)
                   }
-                  placeholder="Item"
-                  className="border border-gray-400 p-1 w-full"
+                  placeholder="Product"
+                  className={getInputClassNameForTable(index)}
                 />
               </td>
-              <td className="border border-gray-300 p-2">
+              <td className="whitespace-nowrap px-3 py-2 text-sm text-gray-500">
                 <input
                   type="number"
                   value={item.quantity}
@@ -67,10 +80,10 @@ const ReceiptDetailOperationTable: React.FC = () => {
                     handleInputChange(index, 'quantity', e.target.value)
                   }
                   placeholder="Quantity"
-                  className="border border-gray-400 p-1 w-full"
+                  className={getInputClassNameForTable(index)}
                 />
               </td>
-              <td className="border border-gray-300 p-2">
+              <td className="whitespace-nowrap px-3 py-2 text-sm text-gray-500">
                 <input
                   type="number"
                   value={item.price}
@@ -78,15 +91,15 @@ const ReceiptDetailOperationTable: React.FC = () => {
                     handleInputChange(index, 'price', e.target.value)
                   }
                   placeholder="Price"
-                  className="border border-gray-400 p-1 w-full"
+                  className={getInputClassNameForTable(index)}
                 />
               </td>
-              <td className="border border-gray-300 p-2">
+              <td className="whitespace-nowrap px-3 py-2 text-sm text-gray-500 items-center">
                 <button
                   onClick={() => removeLine(index)}
-                  className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+                  className="hover:text-danger"
                 >
-                  Remove
+                  <IconPlayListRemove />
                 </button>
               </td>
             </tr>
@@ -95,7 +108,7 @@ const ReceiptDetailOperationTable: React.FC = () => {
       </table>
       <button
         onClick={addLine}
-        className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        className="mt-4 bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
       >
         Add a line
       </button>

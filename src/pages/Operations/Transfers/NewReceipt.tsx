@@ -75,7 +75,7 @@ const NewReceipt = () => {
           </div>
 
           {/* Tab bar */}
-          <div className="my-4">
+          <div className="mb-4 mt-8">
             <ul className="flex border-b">
               {['Operations'].map((tab) => (
                 <li key={tab} className="-mb-px mr-1">
