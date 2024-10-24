@@ -18,7 +18,7 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
 }) => {
   return (
     <>
-      <div className="flex flex-row justify-between my-2 w-full">
+      <div className="flex flex-row justify-between w-full">
         <div className="flex flex-row gap-6 items-center">
           <div className="flex flex-row gap-2 items-center">
             {btns &&
@@ -56,52 +56,6 @@ const TopSearchBar: React.FC<TopSearchBarProps> = ({
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
-        </div>
-        <div className="flex flex-row gap-6 items-center">
-          {pagination && (
-            <div className="flex items-center space-x-2">
-              <button
-                className="p-1 hover:bg-gray-200 rounded"
-                aria-label="Previous page"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-              </button>
-              <span className="text-sm">14/14</span>
-              <button
-                className="p-1 hover:bg-gray-200 rounded"
-                aria-label="Next page"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-            </div>
-          )}
-          {tools && <Toolbar />}
         </div>
       </div>
     </>

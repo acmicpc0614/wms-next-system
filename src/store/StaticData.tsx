@@ -17,6 +17,30 @@ export const ReceiptsData = [
     SourceDoc: 'P00001',
     Status: DONE,
   },
+  {
+    id: '3aSgd3zcjsd',
+    Reference: 'WH/IN/00003',
+    Contact: 'Madhavi',
+    ScheduledData: '10/18/2024 14:53:39',
+    SourceDoc: 'P00003',
+    Status: DONE,
+  },
+  {
+    id: '2344szcjsd',
+    Reference: 'WH/IN/00012',
+    Contact: 'Madhavi',
+    ScheduledData: '10/08/2022 14:53:39',
+    SourceDoc: 'P00005',
+    Status: READY,
+  },
+  {
+    id: 'js54df4cjsd',
+    Reference: 'WH/IN/00006',
+    Contact: 'Madhavi',
+    ScheduledData: '01/04/2024 04:13:49',
+    SourceDoc: 'P00004',
+    Status: DONE,
+  },
 ];
 
 export const DeliveriesData = [
