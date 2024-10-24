@@ -1,10 +1,9 @@
-import { useLayoutEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { EmptyIconStar } from '../../images/icon';
 import { ReceiptsData } from '../../store/StaticData';
 import { getBaseColor } from '../../utils/Actions';
 import CMSPagination from '../CMSPagination';
+import { useLayoutEffect, useRef, useState } from 'react';
 
 interface ReceiptItem {
   id: string; // or number, depending on your data structure
@@ -19,17 +18,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-const ReceiptsTable: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
-
-  const totalPages = Math.ceil(ReceiptsData.length / itemsPerPage);
-  const totalNumbers = ReceiptsData.length;
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
-
+const PurchaseOrderTable: React.FC = () => {
   const navigate = useNavigate();
   const handleClick = (reference: string) => {
     navigate(`/operations/receipts/detail/${reference}`);
@@ -247,15 +236,10 @@ const ReceiptsTable: React.FC = () => {
             </tbody>
           </table>
         </div>
-        <CMSPagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          totalNumbers={totalNumbers}
-          onPageChange={handlePageChange}
-        />
+        <CMSPagination />
       </div>
     </>
   );
 };
 
-export default ReceiptsTable;
+export default PurchaseOrderTable;

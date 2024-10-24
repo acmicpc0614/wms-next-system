@@ -1,5 +1,10 @@
 import { lazy } from 'react';
 
+const PurchaseOrder = lazy(() => import('../pages/Receipts/PurchaseOrder'));
+const NewPurchaseOrder = lazy(() => import('../pages/Receipts/NewPurchaseOrder'));
+const ItemReceipt = lazy(() => import('../pages/Receipts/ItemReceipt'));
+const TransferOrder = lazy(() => import('../pages/Receipts/TransferOrder'));
+
 const OverView = lazy(() => import('../pages/OverView/OverView'));
 const Receipts = lazy(() => import('../pages/Operations/Transfers/Receipts'));
 const ReceiptsDetail = lazy(
@@ -73,6 +78,26 @@ const DeliveryMethods = lazy(
 );
 
 const coreRoutes = [
+  {
+    path: '/receipts/purchase-order',
+    title: 'Purchase Order',
+    component: PurchaseOrder,
+  },
+  {
+    path: '/receipts/purchase-order/new',
+    title: 'New Purchase Order',
+    component: NewPurchaseOrder,
+  },
+  {
+    path: '/receipts/item-receipt',
+    title: 'Item Receipt',
+    component: ItemReceipt,
+  },
+  {
+    path: '/receipts/transfer-order',
+    title: 'Transfer Order',
+    component: TransferOrder,
+  },
   {
     path: '/overview',
     title: 'OverView',
