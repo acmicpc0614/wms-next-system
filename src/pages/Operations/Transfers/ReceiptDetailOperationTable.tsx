@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IconPlayListRemove } from '../../../images/icon';
 import { getInputClassNameForTable } from '../../../utils/Actions';
+import CustomInputSelect from '../../../components/CustomInputSelect';
 
 interface ReceiptItem {
   item: string;
@@ -9,6 +10,21 @@ interface ReceiptItem {
 }
 
 const ReceiptDetailOperationTable: React.FC = () => {
+  const [productItems, setproductItems] = useState<{ item: string }[]>([
+    { item: '' },
+  ]);
+  const productOptions = ['select 1', 'select 2', 'select 3']; // Your data options
+
+  const handleInputSelectChange = (
+    index: number,
+    field: string,
+    value: string,
+  ) => {
+    const newproductItems = [...productItems];
+    newproductItems[index][field] = value;
+    setproductItems(newproductItems);
+  };
+
   const [receiptData, setReceiptData] = useState<ReceiptItem[]>([]);
 
   const addLine = () => {
@@ -62,15 +78,15 @@ const ReceiptDetailOperationTable: React.FC = () => {
               } hover:cursor-pointer border-b border-[#aaaaaa]`}
             >
               <td className="relative px-7 sm:w-12 sm:px-6">
-                <input
-                  type="text"
-                  value={item.item}
-                  onChange={(e) =>
-                    handleInputChange(index, 'item', e.target.value)
-                  }
-                  placeholder="Product"
-                  className={getInputClassNameForTable(index)}
-                />
+                {productItems.map((item, index) => (
+                  <CustomInputSelect
+                    key={index}
+                    item={item}
+                    index={index}
+                    handleInputSelectChange={handleInputSelectChange}
+                    options={productOptions}
+                  />
+                ))}
               </td>
               <td className="whitespace-nowrap px-3 py-2 text-sm text-gray-500">
                 <input
@@ -114,7 +130,7 @@ const ReceiptDetailOperationTable: React.FC = () => {
       </button>
 
       {/* Debugging output */}
-      <pre className="mt-4">{JSON.stringify(receiptData, null, 2)}</pre>
+      {/* <pre className="mt-4">{JSON.stringify(receiptData, null, 2)}</pre> */}
     </div>
   );
 };
